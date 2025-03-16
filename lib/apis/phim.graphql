@@ -1,0 +1,25 @@
+#import "./fragments.graphql"
+
+query GetPhim($locale: I18NLocaleCode) {
+  phim(locale: $locale) {
+    data {
+      attributes {
+        titlePage
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        titleWhatIsVegan
+        descriptionWhatIsVegan
+        titleWhyVegan
+        sectionReasons {
+          ...Section
+        }
+        exploreMoreLink
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

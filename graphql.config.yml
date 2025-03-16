@@ -1,0 +1,13 @@
+schema:
+  # - 'http://127.0.0.1:1337/graphql'
+  - 'https://cms.vive.org.vn/graphql'
+documents:
+  - './lib/apis/*.graphql'
+config:
+  preResolveTypes: true
+generates:
+  ./lib/gql/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo

@@ -1,0 +1,234 @@
+#import "./fragments.graphql"
+
+query GetListReviews(
+  $locale: I18NLocaleCode!
+  $page: Int
+  $pageSize: Int
+  $sort: [String]
+) {
+  reviews(
+    locale: $locale
+    pagination: { page: $page, pageSize: $pageSize }
+    sort: $sort
+  ) {
+    data {
+      attributes {
+        ...ReviewCard
+      }
+    }
+    meta {
+      ...MetaPost
+    }
+  }
+}
+
+query GetListRecipes(
+  $locale: I18NLocaleCode!
+  $page: Int
+  $pageSize: Int
+  $sort: [String]
+) {
+  recipes(
+    locale: $locale
+    pagination: { page: $page, pageSize: $pageSize }
+    sort: $sort
+  ) {
+    data {
+      attributes {
+        ...RecipeCard
+      }
+    }
+    meta {
+      pagination {
+        total
+        pageSize
+        pageCount
+        page
+      }
+    }
+  }
+}
+
+query GetListPosts(
+  $locale: I18NLocaleCode!
+  $page: Int
+  $pageSize: Int
+  $sort: [String]
+  $exceptIds: [ID]
+) {
+  posts(
+    locale: $locale
+    pagination: { page: $page, pageSize: $pageSize }
+    sort: $sort
+    filters: { id: { notIn: $exceptIds } }
+  ) {
+    data {
+      id
+      attributes {
+        ...PostCard
+      }
+    }
+    meta {
+      ...MetaPost
+    }
+  }
+}
+
+query GetListPostsEn(
+  $page: Int
+  $pageSize: Int
+  $sort: [String]
+  $exceptIds: [ID]
+) {
+  posts(
+    locale: "vi"
+    pagination: { page: $page, pageSize: $pageSize }
+    sort: $sort
+    filters: { id: { notIn: $exceptIds } }
+  ) {
+    data {
+      id
+      attributes {
+        localizations {
+          data {
+            id
+            attributes {
+              ...PostCard
+            }
+          }
+        }
+      }
+    }
+    meta {
+      ...MetaPost
+    }
+  }
+}
+
+query GetListPostsByCategorySlug(
+  $locale: I18NLocaleCode!
+  $page: Int
+  $pageSize: Int
+  $category: String
+  $sort: [String]
+  $exceptIds: [ID]
+) {
+  posts(
+    locale: $locale
+    filters: {
+      id: { notIn: $exceptIds }
+      category: { slug: { eq: $category } }
+    }
+    sort: $sort
+    pagination: { page: $page, pageSize: $pageSize }
+  ) {
+    data {
+      id
+      attributes {
+        ...PostCard
+      }
+    }
+    meta {
+      ...MetaPost
+    }
+  }
+}
+
+query GetSearchPosts($locale: I18NLocaleCode!, $word: String!, $limit: Int) {
+  posts(
+    locale: $locale
+    filters: { title: { containsi: $word } }
+    pagination: { limit: $limit }
+  ) {
+    data {
+      attributes {
+        ...SearchPost
+      }
+    }
+  }
+}
+
+query GetListPostsByCategorySlugEn(
+  $page: Int
+  $pageSize: Int
+  $category: String
+  $sort: [String]
+  $exceptIds: [ID]
+) {
+  posts(
+    locale: "vi"
+    filters: {
+      id: { notIn: $exceptIds }
+      category: { slug: { eq: $category } }
+    }
+    sort: $sort
+    pagination: { page: $page, pageSize: $pageSize }
+  ) {
+    data {
+      id
+      attributes {
+        localizations {
+          data {
+            id
+            attributes {
+              ...PostCard
+            }
+          }
+        }
+      }
+    }
+    meta {
+      ...MetaPost
+    }
+  }
+}
+
+query GetReviewsByEn($page: Int, $pageSize: Int, $sort: [String]) {
+  reviews(
+    locale: "vi"
+    pagination: { page: $page, pageSize: $pageSize }
+    sort: $sort
+  ) {
+    data {
+      id
+      attributes {
+        localizations {
+          data {
+            id
+            attributes {
+              ...ReviewCard
+            }
+          }
+        }
+      }
+    }
+    meta {
+      ...MetaPost
+    }
+  }
+}
+
+query GetListRecipesByEn($page: Int, $pageSize: Int, $sort: [String]) {
+  recipes(
+    locale: "vi"
+    pagination: { page: $page, pageSize: $pageSize }
+    sort: $sort
+  ) {
+    data {
+      id
+      attributes {
+        localizations {
+          data {
+            id
+            attributes {
+              ...RecipeCard
+            }
+          }
+        }
+      }
+    }
+    meta {
+      ...MetaPost
+    }
+  }
+}

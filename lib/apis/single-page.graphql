@@ -1,0 +1,90 @@
+#import "./fragments.graphql"
+
+query GetDieuKhoanDieuKien($locale: I18NLocaleCode) {
+  dieuKhoanDieuKien(locale: $locale) {
+    data {
+      attributes {
+        Page {
+          ...SinglePage
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}
+
+query GetChinhSachBaoMat($locale: I18NLocaleCode) {
+  chinhSachBaoMat(locale: $locale) {
+    data {
+      attributes {
+        Page {
+          ...SinglePage
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}
+
+query GetChinhSachLienKet($locale: I18NLocaleCode) {
+  chinhSachLienKet(locale: $locale) {
+    data {
+      attributes {
+        Page {
+          ...SinglePage
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}
+
+query GetCamNangBoTui($locale: I18NLocaleCode) {
+  camNangBoTui(locale: $locale) {
+    data {
+      attributes {
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}
+
+query GetPocketBook($locale: I18NLocaleCode) {
+  pocketBook(locale: $locale) {
+    data {
+      attributes {
+        sectionBookTitle
+        book {
+          ...File
+        }
+        sectionBookImage {
+          ...PhotoUrl
+        }
+        qrCode
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}
+
+query GetLienHe($locale: I18NLocaleCode) {
+  lienHe(locale: $locale) {
+    data {
+      attributes {
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

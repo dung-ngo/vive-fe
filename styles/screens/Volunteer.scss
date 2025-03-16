@@ -1,0 +1,273 @@
+.vive-volunteer-screen {
+  .faq {
+    padding-bottom: 80px;
+    .faq-body {
+      .row-title-text {
+        font-size: 24px;
+      }
+      .faq-row {
+        padding: 10px 0;
+      }
+      .row-content-text {
+        font-size: 18px;
+      }
+      .row-content {
+        // padding: 10px 0;
+      }
+    }
+    .box-faq {
+      margin-top: 40px;
+    }
+  }
+
+  section.about-us {
+    padding-bottom: 48px;
+    .about-us-content {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 80px;
+      .vive-text-no-banner {
+        margin: 16px 0 24px;
+      }
+    }
+    .donation-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      .vive-circle-image {
+        width: 200px;
+        height: 200px;
+      }
+      .about-us-content,
+      .donation-content {
+        flex: 1;
+      }
+      .donation-iframe-box {
+        width: 400px;
+      }
+      .donation-content {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+  .bg-green {
+    background-color: var(--primary-200);
+  }
+  .vive-brands {
+    padding: 80px 0;
+    .box-list-brands {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 50px;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+  .apply-volunteer {
+    padding: 80px 0;
+  }
+  .apply-description {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    white-space: pre-line;
+    text-align: center;
+  }
+  .volunteer-perks {
+    padding: 80px 0;
+    padding-bottom: 100px;
+  }
+  .box-apply-button {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .header-content-title {
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  section.about-champaign {
+    position: relative;
+    overflow: hidden;
+    .absolute-wave {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: calc(100vw * 68 / 1366);
+      transform: scaleX(-1.3) rotate(180deg);
+    }
+    .champaign-intro {
+      position: relative;
+      padding: 160px 0 80px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+      .vive-text-banner {
+        position: absolute;
+        top: 32px;
+        left: 0;
+      }
+      p.text-body {
+        color: var(--dark);
+        margin-bottom: 24px;
+      }
+      a {
+        color: var(--primary);
+        > div {
+          display: flex;
+          align-items: center;
+        }
+        &:hover {
+          color: var(--secondary);
+        }
+      }
+    }
+    .champaign-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    article.about-champaign-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      h2 {
+        margin-top: 24px;
+        color: var(--primary);
+      }
+      .box-content {
+        margin-top: 16px;
+        max-width: 400px;
+        color: var(--dark);
+      }
+    }
+  }
+  .membership-box-data {
+    padding: 80px 0;
+    .txt-desc-2 {
+      white-space: pre-line;
+      text-align: center;
+    }
+  }
+  .box-btn-center {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+
+  section.about-our-activities {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    .activities {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    article.about-event-card {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      flex: 1;
+      height: 100%;
+      img.event-img {
+        height: 270px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .event-content {
+        padding: 24px 36px;
+        .timer {
+          margin-bottom: 16px;
+          display: flex;
+          align-items: center;
+          span {
+            color: var(--secondary);
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  // tablet view
+  @media only screen and (min-width: 635px) {
+    section.about-champaign {
+      .champaign-intro {
+        padding-top: 120px;
+      }
+    }
+  }
+
+  // tablet view
+  @media only screen and (min-width: 768px) {
+    section.about-our-activities {
+      .activities {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .vive-brands {
+      .box-list-brands {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+      }
+    }
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    .tab-left {
+      padding-left: 100px;
+    }
+    section.about-us {
+      padding: 48px 0;
+      .about-us-content {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      article {
+        flex: 1;
+      }
+    }
+    section.about-champaign {
+      .champaign-intro {
+        .vive-circle-image {
+          margin-top: -88px;
+        }
+        article {
+          flex: 1;
+        }
+        a {
+          div {
+            justify-content: end;
+          }
+        }
+        flex-direction: row;
+      }
+      .champaign-list {
+        flex-direction: row;
+        gap: 48px;
+      }
+      article.about-champaign-item {
+        flex: 1;
+      }
+    }
+    section.about-our-activities {
+      .activities {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .vive-brands {
+      .box-list-brands {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  }
+}

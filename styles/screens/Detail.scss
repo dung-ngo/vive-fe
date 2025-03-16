@@ -1,0 +1,76 @@
+.vive-detail-screen {
+  padding-bottom: 64px;
+  > img {
+    margin-bottom: 24px;
+    object-fit: cover;
+  }
+
+  .content-container {
+    max-width: 770px;
+    margin: auto;
+    h1 {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.25rem;
+      .share {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+  }
+  .recipe-share {
+    justify-content: center !important;
+    padding: 24px;
+  }
+  .icon-list {
+    padding: 24px 0;
+    border-top: 1px solid var(--neutral);
+    border-bottom: 1px solid var(--neutral);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .time-icon {
+    display: flex;
+    align-items: center;
+    .text-link-2 {
+      margin-left: 0.5rem;
+    }
+  }
+  .post-detail-content {
+    color: var(--dark);
+    img {
+      max-width: 100%;
+    }
+    p {
+      margin-bottom: 18px;
+    }
+  }
+
+  // tablet view
+  @media only screen and (min-width: 768px) {
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    padding: 80px 0;
+    .content-container {
+      .author {
+        &:first-of-type {
+          padding: 24px 100px;
+        }
+        &:last-of-type {
+          padding: 24px 0;
+          border-top: 1px solid var(--neutral);
+          border-bottom: 1px solid var(--neutral);
+        }
+      }
+    }
+  }
+}

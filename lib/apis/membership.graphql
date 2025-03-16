@@ -1,0 +1,33 @@
+#import "./fragments.graphql"
+
+query GetMembership($locale: I18NLocaleCode) {
+  membership(locale: $locale) {
+    data {
+      attributes {
+        pageName
+        titlePage
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        sectionAboutUs {
+          ...Section
+        }
+        sectionImpactOfVegan {
+          ...Section
+        }
+        sectionListImpacts {
+          ...Section
+        }
+        textLink1
+        link1
+        textDescription2
+        textLink2
+        link2
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.vive-breadcrumb {
+  ul.breadcrumb-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+
+    li.breadcrumb-item {
+      color: #00000099;
+
+      a {
+        color: #00000099;
+        &:hover {
+          color: black;
+        }
+      }
+
+      &.current {
+        color: black;
+      }
+
+      &:not(:last-of-type)::after {
+        content: '/';
+        margin: 0 8px;
+      }
+    }
+  }
+}

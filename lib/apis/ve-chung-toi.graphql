@@ -1,0 +1,32 @@
+#import "./fragments.graphql"
+
+query GetVeChungToi($locale: I18NLocaleCode) {
+  veChungToi(locale: $locale) {
+    data {
+      attributes {
+        pageName
+        titlePage
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        sectionAboutUs {
+          ...Section
+        }
+        sectionImpactOfVegan {
+          ...Section
+        }
+        sectionListImpacts {
+          ...Section
+        }
+        titleOurActivities
+        sectionListActivities {
+          ...Activity
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

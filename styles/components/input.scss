@@ -1,0 +1,31 @@
+.vive-input {
+  margin-bottom: 16px;
+  > * {
+    display: block;
+    width: 100%;
+  }
+  label {
+    color: var(--dark);
+    margin-bottom: 8px;
+    span {
+      color: var(--danger);
+      margin-right: 4px;
+    }
+  }
+  input,
+  textarea {
+    padding: 12px 11px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border: 1px solid #00000037;
+    resize: none;
+    &:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 2px rgba(3, 196, 128, 0.2);
+    }
+  }
+  p {
+    text-align: center;
+    color: var(--danger);
+  }
+}

@@ -1,0 +1,9 @@
+#import "./fragments.graphql"
+
+mutation downloadPocketBook($data: DownloadBookInput!) {
+  downloadPocketBook(data: $data) {
+    email
+    link
+    date
+  }
+}

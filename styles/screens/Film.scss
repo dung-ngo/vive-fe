@@ -1,0 +1,113 @@
+.vive-film-screen {
+  h2.vegan-info-section-title {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  p.text-body {
+    color: var(--dark);
+  }
+
+  section.info-what-is-vegan {
+    text-align: center;
+    padding-bottom: 100px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  section.info-why-vegan {
+    article {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 0;
+      .vive-circle-image {
+        margin-bottom: 64px;
+      }
+      .tab-left {
+        .vive-text-no-banner,
+        .vive-text-banner {
+          margin-top: 12px;
+        }
+      }
+      .text-body:first-of-type {
+        margin-top: 24px;
+      }
+      .flex-content {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+      }
+    }
+
+    article.protect-animals {
+      img {
+        width: 320px;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 32/33;
+        margin-bottom: 80px;
+      }
+    }
+
+    article.protect-animals,
+    article.protect-people,
+    article.vegan-diet-not-enough {
+      flex-direction: column-reverse;
+    }
+    article.protect-environment,
+    article.start-vegan {
+      flex-direction: column;
+      img {
+        object-fit: contain;
+        border-radius: 50%;
+      }
+    }
+    .box-btn-join-us {
+      margin-top: 50px;
+    }
+    .btn-list-btn {
+      padding: 30px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  // tablet view
+  @media only screen and (min-width: 768px) {
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    section.info-why-vegan {
+      .tab-left {
+        padding-left: 100px;
+      }
+      .vive-circle-image {
+        margin-bottom: 0;
+      }
+      article {
+        align-items: flex-start;
+        .flex-content {
+          flex-direction: row;
+        }
+      }
+      article.protect-animals {
+        img {
+          margin-bottom: 0;
+        }
+      }
+      article.protect-animals,
+      article.protect-people,
+      article.vegan-diet-not-enough,
+      article.protect-environment,
+      article.start-vegan {
+        flex-direction: row;
+        > div:not(.vive-circle-image) {
+          width: calc(100% - 460px - 40px);
+        }
+      }
+    }
+  }
+}

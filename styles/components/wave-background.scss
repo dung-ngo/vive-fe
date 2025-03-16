@@ -1,0 +1,27 @@
+.vive-wave-bg {
+  position: absolute;
+  width: 100%;
+  height: 64px;
+  overflow: hidden;
+  background-color: transparent;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  // tablet view
+  @media only screen and (min-width: 768px) {
+    height: 100px;
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    height: 150px;
+  }
+
+  // large view
+  @media only screen and (min-width: 1920px) {
+    height: 250px;
+  }
+}

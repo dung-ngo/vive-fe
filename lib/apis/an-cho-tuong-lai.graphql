@@ -1,0 +1,36 @@
+#import "./fragments.graphql"
+
+query GetAnChoTuongLai($locale: I18NLocaleCode) {
+  anChoTuongLai(locale: $locale) {
+    data {
+      attributes {
+        pageName
+        titlePage
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        sectionAboutUs {
+          ...Section
+        }
+        sectionImpactOfVegan {
+          ...Section
+        }
+        sectionListImpacts {
+          ...Section
+        }
+        titleOurActivities
+        sectionListActivities {
+          ...Activity
+        }
+        titleListLogos
+        listLogos {
+          ...LogoDetail
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

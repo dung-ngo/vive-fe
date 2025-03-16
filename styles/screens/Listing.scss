@@ -1,0 +1,27 @@
+.vive-listing-screen {
+  section {
+    .card-list {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 24px;
+    }
+  }
+
+  // tablet view
+  @media only screen and (min-width: 768px) {
+    section {
+      .card-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    section {
+      .card-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  }
+}

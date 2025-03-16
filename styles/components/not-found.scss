@@ -1,0 +1,15 @@
+.vive-not-found {
+  text-align: center;
+  padding: 120px 0;
+  color: var(--dark);
+
+  .back-btn {
+    background-color: var(--secondary);
+    border-radius: 8px;
+    color: white;
+    padding: 12px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 36px;
+  }
+}

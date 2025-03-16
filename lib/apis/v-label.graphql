@@ -1,0 +1,24 @@
+# import "./fragments.graphql"
+
+query GetVLabel($locale: I18NLocaleCode) {
+  vLabel(locale: $locale) {
+    data {
+      attributes {
+        contentTitle1
+        contentImage1 {
+          ...PhotoUrl
+        }
+        content
+        txtButton
+        hyperlink
+        titleListLogos
+        listLogos {
+          ...LogoDetail
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

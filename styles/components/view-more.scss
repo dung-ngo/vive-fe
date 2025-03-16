@@ -1,0 +1,8 @@
+.vive-view-more {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  &:hover {
+    color: var(--secondary);
+  }
+}

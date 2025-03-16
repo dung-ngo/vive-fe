@@ -1,0 +1,22 @@
+#import "./fragments.graphql"
+
+query GetDonation($locale: I18NLocaleCode) {
+  donation(locale: $locale) {
+    data {
+      attributes {
+        pageName
+        titlePage
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        sectionAboutUs {
+          ...Section
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

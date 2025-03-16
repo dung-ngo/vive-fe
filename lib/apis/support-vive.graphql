@@ -1,0 +1,16 @@
+#import "./fragments.graphql"
+
+query GetSupportVive($locale: I18NLocaleCode) {
+  supportVive(locale: $locale) {
+    data {
+      attributes {
+        content
+        txtButton
+        hyperlink
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

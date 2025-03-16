@@ -1,0 +1,18 @@
+#import "./fragments.graphql"
+
+query GetNhungCauHoiThuongGap($locale: I18NLocaleCode) {
+  nhungCauHoiThuongGap(locale: $locale) {
+    data {
+      attributes {
+        titleFaqs
+        title7VeganChallenge
+        sectionListFaqs {
+          ...Section
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

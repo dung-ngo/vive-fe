@@ -1,0 +1,31 @@
+#import "./fragments.graphql"
+
+query GetPostDetailBySlug($locale: I18NLocaleCode, $slug: String) {
+  posts(locale: $locale, filters: { slug: { eq: $slug } }) {
+    data {
+      attributes {
+        ...PostDetail
+      }
+    }
+  }
+}
+
+query GetRecipeDetailBySlug($locale: I18NLocaleCode, $slug: String) {
+  recipes(locale: $locale, filters: { slug: { eq: $slug } }) {
+    data {
+      attributes {
+        ...RecipeDetail
+      }
+    }
+  }
+}
+
+query GetReviewDetailBySlug($locale: I18NLocaleCode, $slug: String) {
+  reviews(locale: $locale, filters: { slug: { eq: $slug } }) {
+    data {
+      attributes {
+        ...ReviewDetail
+      }
+    }
+  }
+}

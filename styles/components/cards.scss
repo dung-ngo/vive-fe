@@ -1,0 +1,55 @@
+.vive-hashtag {
+  background-color: var(--secondary);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.vive-listing-card {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0.5px 1px 0.5px rgba(0, 0, 0, 0.25), 0 6px 10px #e5e5e5;
+  overflow: hidden;
+  .thumbnail {
+    height: 330px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 22px;
+  }
+  .content {
+    padding: 24px 36px;
+    h3 {
+      color: var(--darkest);
+    }
+    p {
+      margin-top: 12px;
+      color: var(--dark);
+    }
+    .icon-list {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      .time-icon {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--dark);
+      }
+    }
+  }
+}
+
+.vive-simple-card {
+  border-radius: 12px;
+  box-shadow: 0 0.5px 1px 0.5px rgba(0, 0, 0, 0.25), 0 6px 10px #e5e5e5;
+  overflow: hidden;
+  padding: 24px 24px 26px;
+  color: var(--dark);
+  .tags {
+    margin-bottom: 14px;
+  }
+}

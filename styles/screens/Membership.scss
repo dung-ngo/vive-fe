@@ -1,0 +1,15 @@
+.yt-video-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media not all and (min-width: 640px) {
+    .yt-video-container {
+        display: block;
+    }
+    .youtube-video iframe {
+        width: 100%;
+    }
+}

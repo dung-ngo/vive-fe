@@ -1,0 +1,87 @@
+// $font-primary-bold: 'Comfortaa-Bold';
+// $font-primary-light: 'Comfortaa-Light';
+// $font-primary-medium: 'Comfortaa-Medium';
+// $font-primary-regular: 'Comfortaa-Regular';
+// $font-primary-semi: 'Comfortaa-Semi';
+
+// change new font Lexend July 2024
+$font-primary-bold: 'Lexend-Bold';
+$font-primary-light: 'Lexend-Light';
+$font-primary-medium: 'Lexend-Medium';
+$font-primary-regular: 'Lexend-Regular';
+$font-primary-semi: 'Lexend-SemiBold';
+
+@font-face {
+  font-family: $font-primary-bold;
+  src: url('../../assets/fonts/Lexend/static/Lexend-Bold.ttf')
+    format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: $font-primary-light;
+  src: url('../../assets/fonts/Lexend/static/Lexend-Light.ttf')
+    format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: $font-primary-medium;
+  src: url('../../assets/fonts/Lexend/static/Lexend-Medium.ttf')
+    format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: $font-primary-regular;
+  src: url('../../assets/fonts/Lexend/static/Lexend-Regular.ttf')
+    format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: $font-primary-semi;
+  src: url('../../assets/fonts/Lexend/static/Lexend-SemiBold.ttf')
+    format('truetype');
+  font-weight: 600;
+}
+
+// $font-secondary-bold: 'Montserrat-Bold';
+// $font-secondary-light: 'Montserrat-Light';
+// $font-secondary-medium: 'Montserrat-Medium';
+// $font-secondary-regular: 'Montserrat-Regular';
+// $font-secondary-semi: 'Montserrat-Semi';
+
+// change new font Lexend July 2024
+$font-secondary-bold: 'Lexend-Bold';
+$font-secondary-light: 'Lexend-Light';
+$font-secondary-medium: 'Lexend-Medium';
+$font-secondary-regular: 'Lexend-Regular';
+$font-secondary-semi: 'Lexend-SemiBold';
+
+@font-face {
+  font-family: $font-secondary-bold;
+  src: url('../../assets/fonts/Lexend/static/Lexend-Bold.ttf')
+    format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: $font-secondary-light;
+  src: url('../../assets/fonts/Lexend/static/Lexend-Light.ttf')
+    format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: $font-secondary-medium;
+  src: url('../../assets/fonts/Lexend/static/Lexend-Medium.ttf')
+    format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: $font-secondary-regular;
+  src: url('../../assets/fonts/Lexend/static/Lexend-Regular.ttf')
+    format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: $font-secondary-semi;
+  src: url('../../assets/fonts/Lexend/static/Lexend-SemiBold.ttf')
+    format('truetype');
+  font-weight: 600;
+}

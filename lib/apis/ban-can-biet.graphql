@@ -1,0 +1,24 @@
+#import "./fragments.graphql"
+
+query GetBanCanBiet($locale: I18NLocaleCode) {
+  banCanBiet(locale: $locale) {
+    data {
+      attributes {
+        titlePage
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        titleWhatIsVegan
+        descriptionWhatIsVegan
+        titleWhyVegan
+        sectionReasons {
+          ...Section
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

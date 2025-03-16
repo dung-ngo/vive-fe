@@ -1,0 +1,27 @@
+#import "./fragments.graphql"
+
+query GetDoiNguSongThuanChay($locale: I18NLocaleCode) {
+  doiNguSongThuanChay(locale: $locale) {
+    data {
+      attributes {
+        pageName
+        titlePage
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        titleJoinVive
+        descriptionJoinVive
+        titleSupportVive
+        descriptionSupportVive
+        titleTeamVive
+        sectionListMembers {
+          ...Person
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

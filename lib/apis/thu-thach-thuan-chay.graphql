@@ -1,0 +1,55 @@
+#import "./fragments.graphql"
+
+query GetThuThachThuanChay($locale: I18NLocaleCode) {
+  thuThachThuanChay(locale: $locale) {
+    data {
+      attributes {
+        titleVeganChallenge
+        challengeContent {
+          ...ListText
+        }
+        veganParticipant
+        sectionListBenefitsFromVegan {
+          ...Section
+        }
+        titleWaysToJoinChallenge
+        sectionListWaysToJoinChallenge {
+          ...Section
+        }
+        titleNutritionHealthCoaches
+        sectionListNHCoaches {
+          ...Person
+        }
+        titleOurConsultants
+        sectionListConsultants {
+          ...Person
+        }
+        sectionListReviews {
+          ...Person
+        }
+        titleListQuestions
+        sectionListQuestions {
+          ...Section
+        }
+        titlePartners
+        sectionListPartners {
+          ...Partner
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}
+
+query GetVeganChallengeHome($locale: I18NLocaleCode) {
+  thuThachThuanChay(locale: $locale) {
+    data {
+      attributes {
+        titleVeganChallenge
+        veganParticipant
+      }
+    }
+  }
+}

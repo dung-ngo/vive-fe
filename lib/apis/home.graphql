@@ -1,0 +1,31 @@
+#import "./fragments.graphql"
+
+query GetHomePage($locale: I18NLocaleCode) {
+  homePage(locale: $locale) {
+    data {
+      attributes {
+        thumbnail {
+          ...PhotoUrl
+        }
+        sectionWhyNeedVegan {
+          ...Section
+        }
+        sectionWhatWeDone {
+          ...Section
+        }
+        titleValuesOfVegan
+        sectionListValuesOfVegan {
+          ...Section
+        }
+        hyperlinkSeeMoreValuesOfVegan
+        titleMoreTopics
+        sectionListMoreTopics {
+          ...Section
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}

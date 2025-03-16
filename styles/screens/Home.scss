@@ -1,0 +1,184 @@
+.vive-home-page {
+  section.home-why-you-need-vegan,
+  section.home-what-we-do {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      column-gap: 24px;
+    }
+    .tab-left {
+      margin-top: 12px;
+      p {
+        margin: 24px 0;
+        color: var(--dark);
+      }
+    }
+  }
+
+  section.home-why-you-need-vegan {
+    padding-bottom: 80px;
+    .align-right {
+      float: right;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 420/662;
+    }
+  }
+
+  section.home-what-we-do {
+    background-color: var(--primary-100);
+    padding: 80px 0;
+    img {
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+    }
+  }
+
+  section.home-evaluate-vegan {
+    padding: 48px 0 80px;
+    .align-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: auto;
+      > div:first-child {
+        margin-bottom: 16px;
+      }
+    }
+    .grid-values {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 32px;
+      margin: 52px 0 36px 0;
+    }
+    article.home-value-item {
+      color: var(--secondary);
+      text-align: center;
+      .value-icon {
+        width: 180px;
+        height: 180px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        border: 1px solid var(--secondary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+      }
+      h3 {
+        margin-top: 24px;
+      }
+      p {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  section.home-more-topics {
+    padding-bottom: 40px;
+    .topic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 32px;
+    }
+    article.home-more-topic-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      color: var(--primary);
+      .desc {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+
+  // tablet view
+  @media only screen and (max-width: 1023px) {
+    section.home-what-we-do {
+      > .container {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 24px;
+      }
+    }
+  }
+
+  // tablet view
+  @media only screen and (min-width: 768px) {
+    section.home-evaluate-vegan {
+      .grid-values {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    section.home-more-topics {
+      .topic-list {
+        flex-direction: row;
+        gap: 40px;
+      }
+      article.home-more-topic-item {
+        flex: 1;
+        img.thumbnail {
+          width: 100%;
+          aspect-ratio: 1;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    section.home-why-you-need-vegan,
+    section.home-what-we-do {
+      .container {
+        flex-direction: row;
+      }
+      .tab-left {
+        padding-left: 100px;
+      }
+    }
+    section.home-why-you-need-vegan {
+      padding-bottom: 80px;
+      article {
+        margin-top: 120px;
+        flex: 1;
+      }
+    }
+    section.home-what-we-do {
+      padding: 120px 0 80px;
+      display: block;
+      article {
+        max-width: 626px;
+      }
+      img {
+        margin-top: -350px;
+      }
+    }
+    section.home-evaluate-vegan {
+      .grid-values {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+
+.home-countdown {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  // tablet view
+  @media only screen and (min-width: 768px) {
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+  }
+}

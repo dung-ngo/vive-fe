@@ -1,0 +1,195 @@
+fragment File on UploadFileEntityResponse {
+  data {
+    attributes {
+      url
+      name
+      caption
+    }
+  }
+}
+
+fragment PhotoUrl on UploadFileEntityResponse {
+  data {
+    attributes {
+      url
+      caption
+    }
+  }
+}
+
+fragment Section on ComponentSectionSection {
+  title
+  description
+  photo {
+    ...PhotoUrl
+  }
+  hyperlink
+}
+
+fragment Person on ComponentSectionPerson {
+  name
+  avatar {
+    ...PhotoUrl
+  }
+  introduction
+}
+
+fragment Partner on ComponentSectionPartner {
+  logo {
+    ...PhotoUrl
+  }
+  hyperlink
+  name
+}
+
+fragment Activity on ComponentSectionActivity {
+  thumbnail {
+    ...PhotoUrl
+  }
+  title
+  date
+  hyperlink
+}
+
+fragment Seo on ComponentSharedSeo {
+  metaTitle
+  metaDescription
+  metaImage {
+    data {
+      attributes {
+        url
+      }
+    }
+  }
+}
+
+fragment ReviewCard on Review {
+  title
+  shortDescription
+  slug
+  tags
+  thumbnail {
+    data {
+      attributes {
+        url
+      }
+    }
+  }
+}
+
+fragment RecipeCard on Recipe {
+  title
+  slug
+  prepareTime
+  cookingTime
+  thumbnail {
+    data {
+      attributes {
+        url
+      }
+    }
+  }
+}
+
+fragment PostCard on Post {
+  title
+  shortDescription
+  slug
+  minuteRead
+  tags
+  thumbnail {
+    data {
+      attributes {
+        url
+      }
+    }
+  }
+  category {
+    data {
+      attributes {
+        slug
+      }
+    }
+  }
+}
+
+fragment RecipeDetail on Recipe {
+  slug
+  title
+  content
+  prepareTime
+  cookingTime
+  portionSize
+  author
+  referenceInformation
+  banner {
+    ...PhotoUrl
+  }
+}
+
+fragment PostDetail on Post {
+  slug
+  title
+  content
+  minuteRead
+  author
+  banner {
+    ...PhotoUrl
+  }
+}
+
+fragment ReviewDetail on Review {
+  slug
+  title
+  content
+  minuteRead
+  author
+  banner {
+    ...PhotoUrl
+  }
+}
+
+fragment SinglePage on ComponentSectionSinglePage {
+  title
+  content
+}
+
+fragment SearchPost on Post {
+  slug
+  title
+  thumbnail {
+    data {
+      attributes {
+        url
+      }
+    }
+  }
+  category {
+    data {
+      attributes {
+        slug
+      }
+    }
+  }
+}
+
+fragment MetaPost on ResponseCollectionMeta {
+  pagination {
+    total
+    pageSize
+    pageCount
+    page
+  }
+}
+
+fragment ListText on ComponentSectionListText {
+  title
+}
+
+fragment LogoDetail on ComponentSectionLogo {
+  brandName
+  logo {
+    ...PhotoUrl
+  }
+  hyperlink
+}

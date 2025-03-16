@@ -1,0 +1,20 @@
+.MuiPagination-root {
+  .Mui-selected {
+    background-color: #03c480 !important;
+    color: white !important;
+    &:hover {
+      background-color: #00b173;
+    }
+  }
+  li {
+    button {
+      font-size: 1rem;
+    }
+    &:first-child button {
+      border: 1px solid #d9d9d9;
+    }
+    &:last-child button {
+      border: 1px solid #d9d9d9;
+    }
+  }
+}

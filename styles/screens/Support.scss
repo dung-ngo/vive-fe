@@ -1,0 +1,68 @@
+.vive-support-screen {
+  margin-bottom: -20px;
+  padding-bottom: 100px;
+  .header-content-title {
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  .box-button-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .vive-brands {
+    padding-top: 60px;
+  }
+  .vive-brands {
+    .box-list-brands {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 50px;
+    }
+  }
+
+  section.support-hero {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .hero-content-container {
+      padding-top: 80px;
+      max-width: 770px;
+      text-align: center;
+      margin: auto;
+      h1 {
+        margin-bottom: 24px;
+      }
+      h4 {
+        margin-bottom: 16px;
+      }
+      p {
+        margin-bottom: 40px;
+        color: var(--dark);
+      }
+      a {
+        color: var(--secondary);
+        text-decoration: underline;
+      }
+    }
+  }
+  // tablet view
+  @media only screen and (min-width: 768px) {
+    .vive-brands {
+      .box-list-brands {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+      }
+    }
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    .vive-brands {
+      .box-list-brands {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+mutation subscribeListSubscribers($email: String!, $name: String) {
+  subscribeListSubscribers(email: $email, name: $name) {
+    email
+    name
+  }
+}
+
+mutation subscribeChallenge($name: String, $email: String!) {
+  subscribeChallenge(email: $email, name: $name) {
+    email
+    name
+  }
+}
+
+mutation subscribeEBook($name: String, $email: String!) {
+  subscribeEBook(email: $email, name: $name) {
+    email
+    name
+  }
+}
+
+mutation subscribeContact(
+  $name: String!
+  $email: String!
+  $age: String!
+  $message: String!
+) {
+  subscribeContact(email: $email, name: $name, age: $age, message: $message) {
+    email
+    name
+  }
+}

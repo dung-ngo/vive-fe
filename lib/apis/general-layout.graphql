@@ -1,0 +1,17 @@
+#import "./fragments.graphql"
+
+query GetGeneralLayout($locale: I18NLocaleCode) {
+  generalLayout(locale: $locale) {
+    data {
+      attributes {
+        helperRegisterTitle
+        helperRegisterDescription
+        helperBackground {
+          ...PhotoUrl
+        }
+        helperContactTitle
+        helperContactDescription
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+// @import 'tailwindcss/base';
+// @import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
+
+// variables
+@import './variables/color.scss';
+@import './variables/font-family.scss';
+
+// commons
+@import './globals.scss';
+@import './mui.scss';
+
+// components
+@import './components/typography.scss';
+@import './components/breadcrumb.scss';
+@import './components/button.scss';
+@import './components/input.scss';
+@import './components/checkbox.scss';
+@import './components/view-more.scss';
+@import './components/countdown.scss';
+@import './components/swiper.scss';
+@import './components/circle-counter';
+@import './components/helper-section.scss';
+@import './components/not-found.scss';
+@import './components/layout.scss';
+@import './components/cards.scss';
+@import './components/pagination.scss';
+@import './components/wave-background.scss';
+@import './components/circle-image.scss';
+@import './components/listing-title.scss';
+@import './components/confirm-modal.scss';
+
+@media only screen and (max-width: 1023px) {
+  @import './components/header-mini-menu.scss';
+}
+
+@media only screen and (min-width: 1024px) {
+  @import './components/search.scss';
+}
+
+// screens
+@import './screens/Home.scss';
+@import './screens/Challenge.scss';
+@import './screens/AboutUs.scss';
+@import './screens/Policy.scss';
+@import './screens/FAQs.scss';
+@import './screens/Listing.scss';
+@import './screens/JoinUs.scss';
+@import './screens/VeganInfo.scss';
+@import './screens/Support.scss';
+@import './screens/Contact.scss';
+@import './screens/Food.scss';
+@import './screens/News.scss';
+@import './screens/Book.scss';
+@import './screens/Detail.scss';
+@import './screens/Film.scss';
+@import './screens/Donation.scss';
+@import './screens/Volunteer.scss';
+@import './screens/Membership.scss';

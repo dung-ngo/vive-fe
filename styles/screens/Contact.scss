@@ -1,0 +1,58 @@
+.vive-contact-screen {
+  padding: 64px 0;
+
+  h1 {
+    color: var(--primary);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .contact-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    > * {
+      flex: 1;
+    }
+  }
+
+  .contact-notes {
+    .note-item {
+      display: flex;
+      margin-bottom: 36px;
+      margin-top: 20px;
+      .icon-wrapper {
+        width: 40px;
+        padding-top: 4px;
+      }
+      .content-wrapper {
+        flex: 1;
+        color: var(--dark);
+      }
+    }
+  }
+
+  a {
+    color: var(--darkest);
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+
+  // tablet view
+  @media only screen and (max-width: 768px) {
+    .note-item {
+      .text-subtitle-1 {
+        font-size: 20px;
+      }
+    }
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    .contact-form-container {
+      flex-direction: row;
+      gap: 80px;
+    }
+  }
+}

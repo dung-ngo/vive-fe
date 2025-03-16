@@ -1,0 +1,28 @@
+.vive-circle-image {
+  background-color: var(--primary-100);
+  width: 330px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 330px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    height: auto;
+  }
+
+  // tablet view
+  @media only screen and (min-width: 768px) {
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    width: 460px;
+    img {
+      width: 460px;
+    }
+  }
+}

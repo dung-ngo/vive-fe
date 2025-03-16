@@ -1,0 +1,17 @@
+.vive-swiper {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 40px;
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      background-color: white;
+      border: 1px solid var(--secondary);
+    }
+    .swiper-pagination-bullet-active {
+      background-color: var(--secondary);
+    }
+  }
+}

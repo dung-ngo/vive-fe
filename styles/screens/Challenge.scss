@@ -1,0 +1,343 @@
+.vive-challenge-screen {
+  section.challenge-news-categories {
+    .challenge-newscate-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    article.challenge-news-category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      flex: 1;
+      img.news-category-image {
+        width: 300px;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+      }
+      .text-body {
+        color: var(--dark);
+      }
+    }
+  }
+
+  section.challenge-way-to-join {
+    margin-top: 80px;
+    h2 {
+      text-align: center;
+    }
+    .challenge-join-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    article.challenge-join-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      flex: 1;
+      color: var(--dark);
+      .step-image {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 170px;
+        aspect-ratio: 1;
+        border-radius: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+        font-family: $font-secondary-bold;
+        color: white;
+      }
+    }
+  }
+
+  section.challenge-health-coach {
+    background-color: var(--primary-200);
+    margin-top: 80px;
+    padding-top: 120px;
+    position: relative;
+    h2 {
+      text-align: center;
+    }
+    .absolute-wave {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: calc(100vw * 68 / 1366);
+      transform: scaleX(-1) rotate(180deg);
+    }
+    .heath-coach-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 48px;
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+    }
+    article.challenge-health-coach-item {
+      .person-information {
+        display: flex;
+        gap: 24px;
+        img {
+          border-radius: 50%;
+          aspect-ratio: 1;
+        }
+        > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        h3 {
+          color: var(--primary);
+        }
+      }
+      p {
+        color: var(--dark);
+        margin-top: 24px;
+      }
+    }
+  }
+
+  section.challenge-consultants {
+    background-color: var(--primary-200);
+    padding: 80px 0;
+    h2 {
+      text-align: center;
+    }
+    .consultants-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 64px;
+      width: fit-content;
+      margin: auto;
+      margin-top: 32px;
+    }
+    article.challenge-consultant-item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      h3 {
+        color: var(--primary);
+      }
+    }
+    .challenge-feedback {
+      margin-top: 96px;
+      .challenge-feedback-item {
+        padding: 36px 48px;
+        padding-bottom: 90px;
+        height: 100%;
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        position: relative;
+        > div {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+        h3 {
+          color: var(--primary);
+          opacity: 0.8;
+        }
+        p {
+          margin-top: 16px;
+        }
+        img.absolute {
+          position: absolute;
+          bottom: 36px;
+          right: 48px;
+        }
+      }
+    }
+  }
+
+  section.challenge-faqs {
+    padding: 80px 0;
+    .partner-item {
+      margin: 0 10px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .faqs-list {
+      margin-top: 36px;
+    }
+    .challenge-faqs-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      img {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+      }
+      .faqs-content {
+        h3 {
+          margin-top: 24px;
+        }
+        p.text-body {
+          margin-top: 16px;
+        }
+        .faqs-content-footer {
+          margin-top: 36px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+    .faqs-extend {
+      margin-top: 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      align-items: center;
+    }
+  }
+
+  // tablet view
+  @media only screen and (min-width: 768px) {
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    section.challenge-news-categories {
+      .challenge-newscate-list {
+        flex-direction: row;
+      }
+      article.challenge-news-category-item {
+        img.news-category-image {
+          width: 100%;
+        }
+      }
+    }
+    section.challenge-way-to-join {
+      .challenge-join-list {
+        margin-top: 40px;
+        flex-direction: row;
+      }
+    }
+    section.challenge-health-coach {
+      .heath-coach-list {
+        flex-direction: row;
+        gap: 96px;
+        > article,
+        > div {
+          flex: 1;
+        }
+      }
+    }
+    section.challenge-consultants {
+      .consultants-list {
+        gap: 80px;
+      }
+    }
+    section.challenge-faqs {
+      .challenge-faqs-item {
+        flex-direction: row;
+        .faqs-content {
+          flex: 1;
+        }
+      }
+    }
+  }
+}
+
+section.vive-challenge-register {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-top: 56px;
+  padding-bottom: 80px;
+
+  .challenge-content {
+    h2 {
+      text-align: center;
+    }
+    ul.content-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+      li {
+        display: flex;
+        img {
+          margin-right: 12px;
+          width: 22px;
+        }
+        p {
+          flex: 1;
+        }
+      }
+    }
+
+    .vive-countdown {
+      margin: 80px auto 0 auto;
+      width: fit-content;
+    }
+  }
+
+  .challenge-form {
+    border-radius: 8px;
+    background-color: white;
+    padding: 24px 36px;
+
+    h4 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    p.desc {
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    button {
+      margin: auto;
+    }
+
+    p.note {
+      color: var(--dark);
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .vive-checkbox {
+      margin: 24px auto;
+      width: fit-content;
+    }
+  }
+
+  // pc view
+  @media only screen and (min-width: 1024px) {
+    flex-direction: row;
+    .challenge-content,
+    .challenge-form {
+      flex: 1;
+    }
+    .challenge-content {
+      h2 {
+        white-space: pre;
+      }
+    }
+  }
+}

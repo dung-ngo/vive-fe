@@ -1,0 +1,42 @@
+#import "./fragments.graphql"
+
+query GetVolunteer($locale: I18NLocaleCode) {
+  volunteer(locale: $locale) {
+    data {
+      attributes {
+        pageName
+        titlePage
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        titleHelpUs
+        sectionListHelpUs {
+          ...Section
+        }
+        listVolunteerImages {
+          image {
+            ...PhotoUrl
+          }
+          hyperlink
+        }
+        titleVolunteerPerks
+        sectionVolunteerPerks {
+          ...Section
+        }
+        titleApplyToVolunteer
+        descriptionApplyToVolunteer
+        textButtonApplyToVolunteer
+        linkApplyToVolunteer
+        titleFaq
+        listFaqs {
+          question
+          answer
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}
