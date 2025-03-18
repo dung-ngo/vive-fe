@@ -198,6 +198,11 @@ const MiniMenu = () => {
                   {openDropdown === 'TinTuc' && (
                     <ul className="dropdown-list">
                       <li>
+                        <Link href={direct('petitions', locale)}>
+                          {t.header.petitions}
+                        </Link>
+                      </li>
+                      <li>
                         <Link href={direct('news', locale)}>
                           {t.header.tatCaTinTuc}
                         </Link>

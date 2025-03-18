@@ -61,6 +61,10 @@ const HeaderMenu = () => {
       <HeaderDropdownItem
         content={t.header.tinTuc}
         links={[
+          {
+            content: t.header.petitions,
+            link: direct('petitions', locale),
+          },
           { content: t.header.tatCaTinTuc, link: direct('news', locale) },
           { content: t.header.sucKhoe, link: direct('news+health', locale) },
           { content: t.header.dongVat, link: direct('news+animals', locale) },

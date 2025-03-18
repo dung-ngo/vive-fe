@@ -40,6 +40,7 @@ const categoryMapListing = {
   environment: 'moi-truong',
   animal: 'dong-vat',
   health: 'suc-khoe',
+  petitions: 'don-thinh-cau',
 };
 
 async function fetchPostsByCategorySlugEn({
@@ -149,6 +150,13 @@ export default function ListPosts({ pageSlugs, info, posts }: Props) {
 }
 
 const info = {
+  'don-thinh-cau': {
+    title: 'Đơn thỉnh cầu',
+    breadcrumb: [
+      { text: 'Đơn thỉnh cầu', link: 'don-thinh-cau' },
+      { text: 'Đơn thỉnh cầu' },
+    ],
+  },
   'tin-tuc/suc-khoe': {
     title: 'Tin tức - Sức khoẻ',
     breadcrumb: [{ text: 'Tin tức', link: 'tin-tuc' }, { text: 'Sức khoẻ' }],
@@ -168,6 +176,13 @@ const info = {
   'cong-thuc-thuan-chay': {
     title: 'Công thức nấu ăn',
     breadcrumb: [{ text: 'Ẩm thực thuần chay' }, { text: 'Công thức nấu ăn' }],
+  },
+  petitions: {
+    title: 'Petitionsss',
+    breadcrumb: [
+      { text: 'Petitionsss', link: 'petitionsss' },
+      { text: 'Petitionsss' },
+    ],
   },
   'news/health': {
     title: 'News - Health',

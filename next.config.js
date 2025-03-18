@@ -130,6 +130,10 @@ module.exports = {
             '/:slug(tin-tuc/suc-khoe|tin-tuc/dong-vat|tin-tuc/moi-truong|news/health|news/animals|news/environment)',
           destination: '/listing/:slug*',
         },
+        {
+          source: '/(don-thinh-cau|petitions)',
+          destination: '/petitions',
+        },
       ],
     };
   },

@@ -19,13 +19,11 @@ const PocketBookScreen = (props: TProps) => {
     ? backendHost + props.pocketBook.sectionBookImage.data.attributes.url
     : null;
   const [openModalConfirm, setOpenModalConfirm] = useState(false);
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const t = useTranslations();
 
   const resetForm = () => {
-    setName('');
     setEmail('');
   };
   const onSubmit = async (e: FormEvent) => {

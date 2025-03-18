@@ -1,29 +1,33 @@
-.vive-book-screen {
-  padding: 64px 0;
-
-  h1 {
-    color: var(--primary);
-    margin: 0 auto 40px;
-    text-align: center;
-    max-width: 650px;
-  }
-
-  section.book-form-container {
+.vive-petition-screen {
+  section.petition-form-container {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     gap: 64px;
     > * {
       flex: 1;
     }
-    .img-container {
-      display: flex;
-      justify-content: center;
-      img {
-        max-width: 100%;
-        height: auto;
+    .petition-content-container {
+      h1 {
+        color: var(--primary);
+        margin: 0 auto 30px;
+        line-height: 2rem;
+        max-width: 650px;
+      }
+      .petition-content-1 {
+        margin-bottom: 3rem;
+      }
+      .petition-content-2 {
+        h2 {
+          color: var(--primary);
+          margin: 30px auto;
+          line-height: 2rem;
+          max-width: 650px;
+        }
+        margin-bottom: 5rem;
       }
     }
-    .book-form {
+
+    .petition-form {
       --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
       --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
       box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
@@ -45,7 +49,7 @@
     }
   }
 
-  section.book-info {
+  section.petition-info {
     display: flex;
     flex-direction: column;
     gap: 64px;
@@ -83,13 +87,13 @@
 
   // pc view
   @media only screen and (min-width: 1024px) {
-    section.book-form-container {
+    section.petition-form-container {
       flex-direction: row;
       gap: 80px;
       align-items: center;
     }
 
-    section.book-info {
+    section.petition-info {
       flex-direction: row;
       gap: 80px;
       ul.content-list {

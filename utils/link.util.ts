@@ -56,6 +56,10 @@ const directs = {
     vi: '/sach-thuan-chay',
     en: '/vegan-book',
   },
+  petitions: {
+    vi: '/don-thinh-cau',
+    en: '/petitions',
+  },
   news: {
     vi: '/tin-tuc',
     en: '/news',

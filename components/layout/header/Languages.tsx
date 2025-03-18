@@ -101,6 +101,8 @@ const directs = {
   '/gift-giving': '/dong-gop-khac',
   '/nguoi-tham-gia': '/volunteer',
   '/volunteer': '/nguoi-tham-gia',
+  '/don-thinh-cau': '/petitions',
+  '/petitions': '/don-thinh-cau',
 };
 
 export default Languages;
