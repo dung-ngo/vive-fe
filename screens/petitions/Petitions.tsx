@@ -1,4 +1,4 @@
-import Input from '@/components/Input';
+import Input, { Textarea } from '@/components/Input';
 import PrimaryButton from '@/components/PrimaryButton';
 import { FormEvent, useState } from 'react';
 import ModalConfirm from '@/components/ModalConfirm';
@@ -6,6 +6,8 @@ import useTranslations from '@/hooks/useTranslations';
 import { subscribeEBook } from '@/apis/subscribe-email';
 import { CircularProgress } from '@mui/material';
 import YouTube from 'react-youtube';
+import ProgressBar from '@/components/ProgressBar';
+import Checkbox from '@/components/Checkbox';
 
 const PetitionScreen = () => {
   const videoId = 'bS9eXS6VucU'; // dummy for now
@@ -80,9 +82,30 @@ const PetitionScreen = () => {
             </div>
           </div>
           <div className="petition-form">
-            <h3 className="text-sub-title-1">{t.taiSachTitle}</h3>
-            <p className="text-body">{t.dienThongTin}</p>
+            <h3 className="text-sub-title-1">Hãy ký đơn thỉnh cầu</h3>
+            <p className="text-body">
+              <span>15,000 người đã ký đơn thỉnh cầu.</span> Hãy cùng chúng tôi
+              đạt được 20,000 người ký
+            </p>
+            <div className="my-5">
+              <ProgressBar />
+            </div>
+            <div className="mb-5">
+              <div className="my-3">
+                <span className="font-bold">Angela Phương Trinh</span> đã ký tên
+              </div>
+              <div className="my-3">
+                <span className="font-bold">Đỗ Mai</span> đã ký tên
+              </div>
+            </div>
             <form onSubmit={(e) => onSubmit(e)}>
+              <Input
+                label="Tên"
+                errorMessage="Please enter your name!"
+                required
+                type="name"
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <Input
                 label="Email"
                 errorMessage="Please enter your email!"
@@ -90,9 +113,31 @@ const PetitionScreen = () => {
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <Input
+                label="Quốc gia"
+                errorMessage="Please enter your country!"
+                required
+                type="country"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Textarea
+                label="Lý do ký tên"
+                errorMessage="Please enter your reason!"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Checkbox
+                label="Nhận email mỗi tháng từ Vive"
+                isChecked={false}
+                setChecked={false}
+              />
               <PrimaryButton type="submit">
-                {isLoading ? <CircularProgress size={20} /> : t.taiSachTitle}
+                {isLoading ? <CircularProgress size={20} /> : 'Ký tên'}
               </PrimaryButton>
+              <div className="mt-5 text-xs">
+                By signing up here and giving us your contact details, you're
+                acknowledging that you've read and you agree to our privacy
+                policy.
+              </div>
             </form>
           </div>
         </section>
