@@ -82,63 +82,66 @@ const PetitionScreen = () => {
             </div>
           </div>
           <div className="petition-form">
-            <h3 className="text-sub-title-1">Hãy ký đơn thỉnh cầu</h3>
-            <p className="text-body">
-              <span>15,000 người đã ký đơn thỉnh cầu.</span> Hãy cùng chúng tôi
-              đạt được 20,000 người ký
-            </p>
-            <div className="my-5">
-              <ProgressBar />
+            <div className="petition-form-box">
+              <h3 className="text-sub-title-1">Hãy ký đơn thỉnh cầu</h3>
+              <p className="text-body">
+                <span>15,000 người đã ký đơn thỉnh cầu.</span> Hãy cùng chúng
+                tôi đạt được 20,000 người ký
+              </p>
+              <div className="my-5">
+                <ProgressBar />
+              </div>
+              <div className="mb-5">
+                <div className="my-3">
+                  <span className="font-bold">Angela Phương Trinh</span> đã ký
+                  tên
+                </div>
+                <div className="my-3">
+                  <span className="font-bold">Đỗ Mai</span> đã ký tên
+                </div>
+              </div>
+              <form onSubmit={(e) => onSubmit(e)}>
+                <Input
+                  label="Tên"
+                  errorMessage="Please enter your name!"
+                  required
+                  type="name"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input
+                  label="Email"
+                  errorMessage="Please enter your email!"
+                  required
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input
+                  label="Quốc gia"
+                  errorMessage="Please enter your country!"
+                  required
+                  type="country"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Textarea
+                  label="Lý do ký tên"
+                  errorMessage="Please enter your reason!"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Checkbox
+                  label="Nhận email mỗi tháng từ Vive"
+                  isChecked={false}
+                  setChecked={false}
+                />
+                <PrimaryButton type="submit">
+                  {isLoading ? <CircularProgress size={20} /> : 'Ký tên'}
+                </PrimaryButton>
+                <div className="mt-5 text-xs">
+                  By signing up here and giving us your contact details, you're
+                  acknowledging that you've read and you agree to our privacy
+                  policy.
+                </div>
+              </form>
             </div>
-            <div className="mb-5">
-              <div className="my-3">
-                <span className="font-bold">Angela Phương Trinh</span> đã ký tên
-              </div>
-              <div className="my-3">
-                <span className="font-bold">Đỗ Mai</span> đã ký tên
-              </div>
-            </div>
-            <form onSubmit={(e) => onSubmit(e)}>
-              <Input
-                label="Tên"
-                errorMessage="Please enter your name!"
-                required
-                type="name"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Input
-                label="Email"
-                errorMessage="Please enter your email!"
-                required
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Input
-                label="Quốc gia"
-                errorMessage="Please enter your country!"
-                required
-                type="country"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Textarea
-                label="Lý do ký tên"
-                errorMessage="Please enter your reason!"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Checkbox
-                label="Nhận email mỗi tháng từ Vive"
-                isChecked={false}
-                setChecked={false}
-              />
-              <PrimaryButton type="submit">
-                {isLoading ? <CircularProgress size={20} /> : 'Ký tên'}
-              </PrimaryButton>
-              <div className="mt-5 text-xs">
-                By signing up here and giving us your contact details, you're
-                acknowledging that you've read and you agree to our privacy
-                policy.
-              </div>
-            </form>
           </div>
         </section>
       </div>

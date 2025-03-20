@@ -61,9 +61,6 @@ export default function Petitions({
           />
         )}
       </Head>
-      {/* <Layout simpleHeader>
-        <VeganBookScreen />
-      </Layout> */}
       <Layout
         layoutProps={{
           background: {

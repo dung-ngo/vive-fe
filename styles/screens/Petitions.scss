@@ -2,7 +2,7 @@
   section.petition-form-container {
     display: flex;
     // flex-direction: column;
-    gap: 64px;
+    gap: 1rem;
     > * {
       flex: 1;
     }
@@ -27,26 +27,38 @@
         }
         margin-bottom: 5rem;
       }
+      .petition-video {
+        .youtube-video iframe {
+          width: 100%;
+        }
+      }
     }
 
     .petition-form {
-      --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-      padding: 24px 36px 36px;
-      height: fit-content;
-      h3 {
-        color: var(--primary);
-        text-align: center;
-      }
-      p {
-        text-align: center;
-        margin: 16px 0;
-        color: var(--dark);
-      }
-      button {
-        margin: auto;
+      position: relative;
+      .petition-form-box {
+        position: absolute;
+        bottom: -8px;
+        background-color: #fff;
+        border-radius: 10px;
+        --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        padding: 24px 36px 36px;
+        height: fit-content;
+        h3 {
+          font-size: 1.5rem;
+          color: var(--primary);
+          text-align: center;
+        }
+        p {
+          margin: 16px 0;
+          color: var(--dark);
+        }
+        button {
+          margin: auto;
+        }
       }
     }
   }
