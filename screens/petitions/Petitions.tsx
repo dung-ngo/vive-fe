@@ -1,13 +1,9 @@
-import Input, { Textarea } from '@/components/Input';
-import PrimaryButton from '@/components/PrimaryButton';
 import { FormEvent, useState } from 'react';
 import ModalConfirm from '@/components/ModalConfirm';
 import useTranslations from '@/hooks/useTranslations';
 import { subscribeEBook } from '@/apis/subscribe-email';
-import { CircularProgress } from '@mui/material';
 import YouTube from 'react-youtube';
 import ProgressBar from '@/components/ProgressBar';
-import Checkbox from '@/components/Checkbox';
 
 const PetitionScreen = () => {
   const videoId = 'bS9eXS6VucU'; // dummy for now
@@ -81,7 +77,7 @@ const PetitionScreen = () => {
               </p>
             </div>
           </div>
-          <div className="petition-form">
+          {/* <div className="petition-form">
             <h3 className="text-sub-title-1">Hãy ký đơn thỉnh cầu</h3>
             <p className="text-body">
               <span>15,000 người đã ký đơn thỉnh cầu.</span> Hãy cùng chúng tôi
@@ -139,6 +135,33 @@ const PetitionScreen = () => {
                 policy.
               </div>
             </form>
+          </div> */}
+          <div className="petition-gg-form">
+            <div className="form-top px-8">
+              <p className="text-body">
+                <span>15,000 người đã ký đơn thỉnh cầu.</span> Hãy cùng chúng
+                tôi đạt được 20,000 người ký
+              </p>
+              <div className="my-5">
+                <ProgressBar />
+              </div>
+              <div className="mb-8">
+                <div className="my-3">
+                  <span className="font-bold">Angela Phương Trinh</span> đã ký
+                  tên
+                </div>
+                <div className="my-3">
+                  <span className="font-bold">Đỗ Mai</span> đã ký tên
+                </div>
+              </div>
+            </div>
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfUwQE2RKx_WBiGMwTEepQ-a4XiEVq0zq9wPlT6IiTvBMUGdg/viewform?embedded=true"
+              width="100%"
+              height="100%"
+            >
+              Loading…
+            </iframe>
           </div>
         </section>
       </div>

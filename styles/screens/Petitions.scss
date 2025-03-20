@@ -1,18 +1,18 @@
 .vive-petition-screen {
   section.petition-form-container {
     display: flex;
-    // flex-direction: column;
-    gap: 64px;
-    > * {
-      flex: 1;
-    }
+    gap: 5rem;
+    // > * {
+    //   flex: 1;
+    // }
     .petition-content-container {
+      width: 45%;
+      // min-width: 250px;
       h1 {
         font-size: 2rem;
         color: var(--primary);
         margin: 0 auto 30px;
         line-height: 2rem;
-        max-width: 650px;
       }
       .petition-content-1 {
         margin-bottom: 3rem;
@@ -23,10 +23,18 @@
           color: var(--primary);
           margin: 30px auto;
           line-height: 2rem;
-          max-width: 650px;
         }
         margin-bottom: 5rem;
       }
+      .petition-video {
+        .youtube-video iframe {
+          width: 100%;
+        }
+      }
+    }
+
+    .petition-gg-form {
+      flex: 1;
     }
 
     .petition-form {
@@ -91,8 +99,7 @@
   @media only screen and (min-width: 1024px) {
     section.petition-form-container {
       flex-direction: row;
-      gap: 80px;
-      align-items: center;
+      // gap: 80px;
     }
 
     section.petition-info {
