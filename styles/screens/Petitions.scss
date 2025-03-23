@@ -1,4 +1,5 @@
 .vive-petition-screen {
+  margin-bottom: 10rem;
   section.petition-form-container {
     display: flex;
     gap: 5rem;
@@ -6,7 +7,7 @@
     //   flex: 1;
     // }
     .petition-content-container {
-      width: 45%;
+      width: 40%;
       // min-width: 250px;
       h1 {
         font-size: 2rem;
@@ -35,6 +36,18 @@
 
     .petition-gg-form {
       flex: 1;
+      .gg-iframe {
+        height: 76%;
+      }
+      .featured-comment {
+        h2 {
+          font-size: 2rem;
+          color: var(--primary);
+          margin: 30px auto;
+          line-height: 2rem;
+        }
+        margin-bottom: 5rem;
+      }
     }
 
     .petition-form {

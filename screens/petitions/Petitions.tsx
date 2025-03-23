@@ -1,34 +1,46 @@
-import { FormEvent, useState } from 'react';
-import ModalConfirm from '@/components/ModalConfirm';
+'use client';
+
+import { useState } from 'react';
 import useTranslations from '@/hooks/useTranslations';
-import { subscribeEBook } from '@/apis/subscribe-email';
 import YouTube from 'react-youtube';
 import ProgressBar from '@/components/ProgressBar';
+import Image from 'next/image';
 
 const PetitionScreen = () => {
   const videoId = 'bS9eXS6VucU'; // dummy for now
-  const [openModalConfirm, setOpenModalConfirm] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const t = useTranslations();
   const resetForm = () => {
     setName('');
     setEmail('');
   };
-  const onSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      await subscribeEBook({ email, name });
-    } catch (err) {
-      console.log(err);
-    }
-    downloadBook();
-    resetForm();
-    setOpenModalConfirm(true);
-    setIsLoading(false);
-  };
+
+  // useEffect(() => {
+  //   const modifyButtonText = () => {
+  //     const iframe = document.getElementById(
+  //       'google-form',
+  //     ) as HTMLIFrameElement;
+  //     console.log('iframe ', iframe);
+  //     console.log('node ', iframe.contentDocument);
+  //     if (!iframe) return;
+
+  //     const innerDoc = iframe.contentDocument || iframe.contentWindow?.document;
+  //     if (!innerDoc) return;
+
+  //     const submitButton = innerDoc.querySelector(
+  //       'input[type=submit]',
+  //     ) as HTMLInputElement;
+  //     if (submitButton) {
+  //       submitButton.value = 'Send Response'; // Modify button text
+  //     }
+  //   };
+
+  //   // Delay to ensure iframe content loads
+  //   setTimeout(modifyButtonText, 2000);
+
+  //   return () => clearTimeout(); // Cleanup (optional)
+  // }, []);
 
   const downloadBook = () => {
     const a = document.createElement('a');
@@ -77,67 +89,8 @@ const PetitionScreen = () => {
               </p>
             </div>
           </div>
-          {/* <div className="petition-form">
-            <h3 className="text-sub-title-1">Hãy ký đơn thỉnh cầu</h3>
-            <p className="text-body">
-              <span>15,000 người đã ký đơn thỉnh cầu.</span> Hãy cùng chúng tôi
-              đạt được 20,000 người ký
-            </p>
-            <div className="my-5">
-              <ProgressBar />
-            </div>
-            <div className="mb-5">
-              <div className="my-3">
-                <span className="font-bold">Angela Phương Trinh</span> đã ký tên
-              </div>
-              <div className="my-3">
-                <span className="font-bold">Đỗ Mai</span> đã ký tên
-              </div>
-            </div>
-            <form onSubmit={(e) => onSubmit(e)}>
-              <Input
-                label="Tên"
-                errorMessage="Please enter your name!"
-                required
-                type="name"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Input
-                label="Email"
-                errorMessage="Please enter your email!"
-                required
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Input
-                label="Quốc gia"
-                errorMessage="Please enter your country!"
-                required
-                type="country"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Textarea
-                label="Lý do ký tên"
-                errorMessage="Please enter your reason!"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Checkbox
-                label="Nhận email mỗi tháng từ Vive"
-                isChecked={false}
-                setChecked={false}
-              />
-              <PrimaryButton type="submit">
-                {isLoading ? <CircularProgress size={20} /> : 'Ký tên'}
-              </PrimaryButton>
-              <div className="mt-5 text-xs">
-                By signing up here and giving us your contact details, you're
-                acknowledging that you've read and you agree to our privacy
-                policy.
-              </div>
-            </form>
-          </div> */}
           <div className="petition-gg-form">
-            <div className="form-top px-8">
+            <div className="signature-count px-8">
               <p className="text-body">
                 <span>15,000 người đã ký đơn thỉnh cầu.</span> Hãy cùng chúng
                 tôi đạt được 20,000 người ký
@@ -145,37 +98,56 @@ const PetitionScreen = () => {
               <div className="my-5">
                 <ProgressBar />
               </div>
-              <div className="mb-8">
-                <div className="my-3">
-                  <span className="font-bold">Angela Phương Trinh</span> đã ký
-                  tên
+            </div>
+            <div className="gg-iframe">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfUwQE2RKx_WBiGMwTEepQ-a4XiEVq0zq9wPlT6IiTvBMUGdg/viewform?embedded=true"
+                width="100%"
+                height="100%"
+                id="google-form"
+              >
+                Loading…
+              </iframe>
+            </div>
+            <div className="featured-comment mt-10">
+              <h2>Featured comments</h2>
+              <div className="flex gap-3 mb-5">
+                <Image
+                  width={50}
+                  height={50}
+                  src="/icons/person.png"
+                  alt="Commenter's Profile Picture"
+                  className="w-12 h-12 rounded-full"
+                />
+                <div className="bg-gray-200 p-3 rounded-3xl">
+                  <span className="font-bold text-base">Nguyễn Văn A</span>
+                  <p className="text-sm">
+                    Tôi hoàn toàn ủng hộ việc chấm dứt lễ hội giết mổ lợn tàn
+                    bạo này. Chúng ta phải đối xử với động vật một cách nhân
+                    đạo.
+                  </p>
                 </div>
-                <div className="my-3">
-                  <span className="font-bold">Đỗ Mai</span> đã ký tên
+              </div>
+              <div className="flex gap-3">
+                <Image
+                  width={50}
+                  height={50}
+                  src="/icons/person.png"
+                  alt="Commenter's Profile Picture"
+                  className="w-12 h-12 rounded-full"
+                />
+                <div className="bg-gray-200 p-3 rounded-3xl">
+                  <span className="font-bold text-base">Trần Thị B</span>
+                  <p className="text-sm">
+                    Tôi đã ký đơn thỉnh cầu và chia sẻ với bạn bè của mình. Hy
+                    vọng chúng ta có thể tạo ra sự thay đổi.
+                  </p>
                 </div>
               </div>
             </div>
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSfUwQE2RKx_WBiGMwTEepQ-a4XiEVq0zq9wPlT6IiTvBMUGdg/viewform?embedded=true"
-              width="100%"
-              height="100%"
-            >
-              Loading…
-            </iframe>
           </div>
         </section>
       </div>
-      <ModalConfirm
-        openModal={openModalConfirm}
-        closeModal={() => {
-          setOpenModalConfirm(false);
-        }}
-        subContent={
-          <div className="sub-content text-body-small text-neutral-dark mb-16">
-            <p className="body-text">{t.taiSach}</p>
-          </div>
-        }
-      />
     </div>
   );
 };
