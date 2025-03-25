@@ -1,14 +1,9 @@
+// mobile view
 .vive-petition-screen {
-  margin-bottom: 10rem;
+  margin-bottom: 0;
+  padding: 0 1rem;
   section.petition-form-container {
-    display: flex;
-    gap: 5rem;
-    // > * {
-    //   flex: 1;
-    // }
     .petition-content-container {
-      width: 40%;
-      // min-width: 250px;
       h1 {
         font-size: 2rem;
         color: var(--primary);
@@ -29,15 +24,16 @@
       }
       .petition-video {
         .youtube-video iframe {
-          width: 100%;
+          height: 15rem;
         }
       }
     }
-
     .petition-gg-form {
-      flex: 1;
+      .signature-count {
+        // padding: 0 0.5rem;
+      }
       .gg-iframe {
-        height: 76%;
+        height: 75rem;
       }
       .featured-comment {
         h2 {
@@ -49,81 +45,99 @@
         margin-bottom: 5rem;
       }
     }
-
-    .petition-form {
-      --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-      padding: 24px 36px 36px;
-      height: fit-content;
-      h3 {
-        color: var(--primary);
-        text-align: center;
-      }
-      p {
-        text-align: center;
-        margin: 16px 0;
-        color: var(--dark);
-      }
-      button {
-        margin: auto;
-      }
-    }
   }
+}
 
-  section.petition-info {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-    margin-top: 80px;
-    > * {
-      flex: 1;
-    }
-    p {
-      color: var(--dark);
-    }
-    .vive-text-banner {
-      margin: 24px 0 12px;
-    }
-    ul.content-list {
-      list-style-type: none;
-      li {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 4px 0;
-      }
-    }
-  }
-
-  a {
-    color: var(--darkest);
-    &:hover {
-      color: var(--secondary);
-    }
-  }
-
-  // tablet view
-  @media only screen and (min-width: 768px) {
-  }
-
-  // pc view
-  @media only screen and (min-width: 1024px) {
+// tablet view (ipad mini + ipad air)
+@media only screen and (min-width: 768px) {
+  .vive-petition-screen {
+    margin-bottom: 0;
+    padding: 0 2rem;
     section.petition-form-container {
-      flex-direction: row;
-      // gap: 80px;
-    }
-
-    section.petition-info {
-      flex-direction: row;
-      gap: 80px;
-      ul.content-list {
-        margin-top: 64px;
+      .petition-gg-form {
+        .signature-count {
+          padding: 0 2.5rem;
+        }
+        .gg-iframe {
+          height: 60rem;
+        }
+        .featured-comment {
+          padding: 0 2.5rem;
+        }
+      }
+      .petition-content-container {
+        padding: 0 1rem;
+        .petition-video {
+          .youtube-video iframe {
+            height: 25rem;
+          }
+        }
       }
     }
-    .tab-left {
-      padding-left: 100px;
+  }
+}
+
+// ipad pro view
+@media only screen and (min-width: 1024px) {
+  .vive-petition-screen {
+    margin-bottom: 0;
+    padding: 0 2rem;
+    section.petition-form-container {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 3rem;
+      .petition-content-container {
+        width: 40%;
+        .petition-video {
+          .youtube-video iframe {
+            width: 100%;
+            height: 15rem;
+          }
+        }
+      }
+      .petition-gg-form {
+        flex: 1;
+        .signature-count {
+          padding: 0 2rem;
+        }
+        .gg-iframe {
+          height: 65rem;
+        }
+        .featured-comment {
+          padding: 0 2rem;
+        }
+      }
+    }
+  }
+}
+
+// pc view
+@media only screen and (min-width: 1200px) {
+  .vive-petition-screen {
+    padding: 0 2rem;
+    section.petition-form-container {
+      display: flex;
+      flex-direction: row-reverse;
+      .petition-content-container {
+        width: 40%;
+        .petition-video {
+          .youtube-video iframe {
+            width: 100%;
+          }
+        }
+      }
+      .petition-gg-form {
+        flex: 1;
+        .signature-count {
+          padding: 0 4rem;
+        }
+        .gg-iframe {
+          height: 60rem;
+        }
+        .featured-comment {
+          padding: 0 4rem;
+        }
+      }
     }
   }
 }
