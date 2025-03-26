@@ -29,9 +29,6 @@
       }
     }
     .petition-gg-form {
-      .signature-count {
-        // padding: 0 0.5rem;
-      }
       .gg-iframe {
         height: 75rem;
       }
@@ -56,13 +53,18 @@
     section.petition-form-container {
       .petition-gg-form {
         .signature-count {
-          padding: 0 2.5rem;
+          padding-left: 2rem;
+          width: 645px;
         }
         .gg-iframe {
           height: 60rem;
+          iframe {
+            width: 680px;
+          }
         }
         .featured-comment {
-          padding: 0 2.5rem;
+          width: 650px;
+          padding-left: 2rem;
         }
       }
       .petition-content-container {
@@ -80,14 +82,10 @@
 // ipad pro view
 @media only screen and (min-width: 1024px) {
   .vive-petition-screen {
-    margin-bottom: 0;
-    padding: 0 2rem;
     section.petition-form-container {
       display: flex;
       flex-direction: row-reverse;
-      gap: 3rem;
       .petition-content-container {
-        width: 40%;
         .petition-video {
           .youtube-video iframe {
             width: 100%;
@@ -96,15 +94,20 @@
         }
       }
       .petition-gg-form {
-        flex: 1;
         .signature-count {
-          padding: 0 2rem;
+          padding-left: 4.5rem;
+          width: 520px;
         }
         .gg-iframe {
           height: 65rem;
+          padding-left: 3rem;
+          iframe {
+            width: 500px;
+          }
         }
         .featured-comment {
-          padding: 0 2rem;
+          width: 480px;
+          margin-left: 2.5rem;
         }
       }
     }
@@ -118,24 +121,18 @@
     section.petition-form-container {
       display: flex;
       flex-direction: row-reverse;
+      gap: 0;
+      .petition-gg-form {
+        .featured-comment {
+          margin-left: 2rem;
+        }
+      }
       .petition-content-container {
-        width: 40%;
         .petition-video {
           .youtube-video iframe {
             width: 100%;
+            height: 20rem;
           }
-        }
-      }
-      .petition-gg-form {
-        flex: 1;
-        .signature-count {
-          padding: 0 4rem;
-        }
-        .gg-iframe {
-          height: 60rem;
-        }
-        .featured-comment {
-          padding: 0 4rem;
         }
       }
     }

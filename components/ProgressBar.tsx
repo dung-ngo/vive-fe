@@ -6,21 +6,25 @@ import LinearProgress, {
 } from '@mui/material/LinearProgress';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 20,
-  borderRadius: 10,
+  height: 30,
+  borderRadius: 15,
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: theme.palette.grey[200],
   },
   [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 10,
+    borderRadius: 15,
     backgroundColor: 'var(--secondary)',
   },
 }));
 
-export default function CustomizedProgressBars() {
+export default function CustomizedProgressBars({
+  percentage,
+}: {
+  percentage: number;
+}) {
   return (
     <Stack spacing={2} sx={{ flexGrow: 1 }}>
-      <BorderLinearProgress variant="determinate" value={80} />
+      <BorderLinearProgress variant="determinate" value={percentage} />
     </Stack>
   );
 }
