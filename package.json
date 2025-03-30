@@ -30,6 +30,7 @@
     "@mui/material": "^5.14.16",
     "axios": "^1.5.1",
     "flag-icons": "^6.11.2",
+    "googleapis": "^148.0.0",
     "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
     "isomorphic-dompurify": "^1.9.0",

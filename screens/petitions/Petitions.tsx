@@ -8,9 +8,10 @@ import Image from 'next/image';
 
 const PetitionScreen = () => {
   const videoId = 'bS9eXS6VucU'; // dummy for now
+  const targetNumber = 500;
   const t = useTranslations();
   const [signatureCount, setSignatureCount] = useState<number>(0);
-  const progressPercentage = (signatureCount * 100) / 20000;
+  const progressPercentage = (signatureCount * 100) / targetNumber;
 
   useEffect(() => {
     (async () => {
@@ -36,17 +37,15 @@ const PetitionScreen = () => {
           <div className="petition-gg-form">
             <div className="signature-count text-center">
               <p className="text-body">
+                <div className="my-5">
+                  <ProgressBar percentage={progressPercentage} />
+                </div>
                 <span className="font-bold">
                   {signatureCount} người đã ký đơn thỉnh cầu.
                 </span>{' '}
-                Hãy cùng chúng tôi đạt được 20,000 người ký
+                Hãy cùng chúng tôi đạt được {targetNumber} người ký
               </p>
-              <div className="my-5">
-                <ProgressBar percentage={progressPercentage} />
-              </div>
             </div>
-            {/* AIzaSyBb_tAXMnxDOaqLGa8X_MPbzXkoLtw6Mz4 */}
-            {/* 1IZ6NQbuCUEVEkhbVbRPhJckONa4X7SdB18BztpixfdI */}
             <div className="gg-iframe">
               <iframe
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfUwQE2RKx_WBiGMwTEepQ-a4XiEVq0zq9wPlT6IiTvBMUGdg/viewform?embedded=true"
@@ -68,7 +67,7 @@ const PetitionScreen = () => {
                   alt="Commenter's Profile Picture"
                   className="w-12 h-12 rounded-full"
                 />
-                <div className="bg-gray-200 p-3 rounded-3xl">
+                <div className="comment-box bg-gray-200">
                   <span className="font-bold text-base">Nguyễn Văn A</span>
                   <p className="text-sm">
                     Tôi hoàn toàn ủng hộ việc chấm dứt lễ hội giết mổ lợn tàn
@@ -85,7 +84,7 @@ const PetitionScreen = () => {
                   alt="Commenter's Profile Picture"
                   className="w-12 h-12 rounded-full"
                 />
-                <div className="bg-gray-200 p-3 rounded-3xl">
+                <div className="comment-box bg-gray-200">
                   <span className="font-bold text-base">Trần Thị B</span>
                   <p className="text-sm">
                     Tôi đã ký đơn thỉnh cầu và chia sẻ với bạn bè của mình. Hy
