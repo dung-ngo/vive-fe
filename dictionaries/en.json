@@ -119,5 +119,21 @@
   "register": {
     "tieude": "Try The 7-Day Vegan Challenge"
   },
-  "exploreMoreButton": "Explore more"
+  "exploreMoreButton": "Explore more",
+  "petition": {
+    "headTitle": "PIGS ARE SUFFERING EXTREME PAIN",
+    "subHeadTitle": "WHY VIOLATE VIETNAM'S LAWS?",
+    "title": "This pain is against the law",
+    "content1": "Every night, in a small slaughterhouse, approximately 20 pigs are brutally killed. With metal hooks piercing through their mouths, they are dragged across the cold concrete floor, surrounded by the terrified screams of their fellow pigs. Their eyes widen in fear as they are forced into a cramped iron cage, where their fate is sealed. Fully conscious and without stunning, a cold blade slashes their throats, causing blood to gush out until they die within a minute. Meanwhile, their companions stand by, trembling, watching in horror—waiting for their turn.",
+    "content2": "It is estimated that 80% of pigs in Vietnam—50 million each year—are slaughtered in a similarly cruel manner. This practice violates Vietnam's Livestock Law, which states: \"Slaughterhouses must minimize fear and pain for animals; no beating or abuse is allowed. Stunning must be applied before slaughter, and animals must not witness the killing of others.\" Despite being Asia's second-largest pork producer, this reality raises serious concerns about animal welfare and the lack of law enforcement. While it is undeniable that pigs will eventually be slaughtered, they are not mere commodities. Scientific research has proven that pigs have complex nervous systems, much like dogs and humans—they feel pain, fear, and distress. Don't let them suffer in agony! Sign the petition now to end this cruelty!",
+    "content3": "While it is undeniable that pigs will eventually be slaughtered, they are not mere commodities. Scientific research has proven that pigs have complex nervous systems, much like dogs and humans—they feel pain, fear, and distress. Don't let them suffer in agony! Sign the petition now to end this cruelty!",
+    "subTitle": "Help pigs",
+    "subContent1": "Your signature can help end the suffering that pigs are enduring right now. No money.",
+    "subContent2": "Just 10 seconds.",
+    "subContent3": "The collected signatures will be submitted to the Department of Livestock Production, under the Ministry of Agriculture and Rural Development, for review and timely intervention.",
+    "targetContent1": "people have signed the petition.",
+    "targetContent2": "Let's work together to reach",
+    "targetContent3": "signatures.",
+    "featuredComment": "Featured comments"
+  }
 }

@@ -61,8 +61,17 @@ export default function Petitions({
           />
         )}
       </Head>
-      {/* <Layout simpleHeader>
-        <VeganBookScreen />
+      {/* <Layout
+        layoutProps={{
+          background: {
+            type: 'image',
+            src:
+              `${process.env.NEXT_PUBLIC_UPLOAD_URL}${attributes.thumbnail.data?.attributes?.url}` ||
+              '',
+          },
+        }}
+      >
+        <PetitionScreen />
       </Layout> */}
       <Layout
         layoutProps={{
@@ -71,6 +80,10 @@ export default function Petitions({
             src:
               `${process.env.NEXT_PUBLIC_UPLOAD_URL}${attributes.thumbnail.data?.attributes?.url}` ||
               '',
+          },
+          headerContent: {
+            title: 'LỢN ĐANG TRẢI QUA CƠN ĐAU TẬN CÙNG',
+            subTitle: 'SAO LÀM TRÁI LUẬT PHÁP VIỆT NAM?',
           },
         }}
       >

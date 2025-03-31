@@ -30,6 +30,7 @@ const PetitionScreen = () => {
     signatureCount,
     percentage: progressPercentage + '%',
   });
+
   return (
     <div className="vive-petition-screen">
       <div className="container">
@@ -41,9 +42,10 @@ const PetitionScreen = () => {
                   <ProgressBar percentage={progressPercentage} />
                 </div>
                 <span className="font-bold">
-                  {signatureCount} người đã ký đơn thỉnh cầu.
+                  {signatureCount} {t.petition.targetContent1}
                 </span>{' '}
-                Hãy cùng chúng tôi đạt được {targetNumber} người ký
+                {t.petition.targetContent2} {targetNumber}{' '}
+                {t.petition.targetContent3}
               </p>
             </div>
             <div className="gg-iframe">
@@ -58,7 +60,7 @@ const PetitionScreen = () => {
               </iframe>
             </div>
             <div className="featured-comment">
-              <h2>Featured comments</h2>
+              <h2>{t.petition.featuredComment}</h2>
               <div className="flex gap-3 mb-5">
                 <Image
                   width={50}
@@ -95,39 +97,22 @@ const PetitionScreen = () => {
             </div>
           </div>
           <div className="petition-content-container">
-            <h1>Help Stop Vietnam's Cruel Pig Slaughter Festival</h1>
+            <h1>{t.petition.title}</h1>
             <div className="petition-content-1">
-              <p style={{ marginBottom: '2rem' }}>
-                The Nem Thuong Pig Slaughter Festival in Vietnam is one of the
-                worst "festivals" in the world. For the event—which takes place
-                every Lunar New Year—pigs are tied up and paraded through the
-                streets of Nem Thuong village surrounded by noisy crowds and
-                frightening, loud music. Their throats are then slit while
-                they're still fully conscious so that villagers can dip money in
-                their blood for "good luck."
-              </p>
-              <p>
-                Pigs are social, playful, protective animals who bond with each
-                other, make nests, and relax in the sun. They are known to
-                dream, recognize their own names, learn "tricks" like sitting
-                for a treat, lead social lives of a complexity previously
-                observed only in primates, and have been seen showing empathy
-                for other pigs who are unhappy or distressed. All pigs deserve
-                long, happy lives, free from suffering and exploitation.
-              </p>
+              <p className="mb-8">{t.petition.content1}</p>
+              <p className="mb-8">{t.petition.content2}</p>
+              <p className="mb-8">{t.petition.content3}</p>
             </div>
             <div className="petition-video">
               <YouTube className="youtube-video" videoId={videoId} />
             </div>
             <div className="petition-content-2">
-              <h2>Take Action for Pigs</h2>
-              <p>
-                Torturing and killing animals have never brought anything good
-                into the world, and culture and tradition are no excuse for
-                cruelty. Please take a moment to send a message to officials in
-                Vietnam and ask that they put an end to this cruel festival
-                immediately.
+              <h2>{t.petition.subTitle}</h2>
+              <p className="mb-8">
+                {t.petition.subContent1}{' '}
+                <span className="font-bold">{t.petition.subContent2}</span>{' '}
               </p>
+              <p>{t.petition.subContent3}</p>
             </div>
           </div>
         </section>

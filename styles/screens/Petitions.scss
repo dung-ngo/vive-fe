@@ -35,8 +35,25 @@
       }
       .gg-iframe {
         height: 85rem;
+        iframe body .quantumWizButtonPaperbuttonEl {
+          background-color: #03c480 !important; /* Change button color */
+          color: white !important; /* Change text color */
+          font-weight: bold !important; /* Make text bold */
+        }
         iframe {
           width: 310px;
+          form {
+            .RH5hzf {
+              .QvWxOd {
+                background-color: var(--secondary) !important;
+                span.l4V7wb .Fxmcue {
+                  span.NPEfkd .RveJvd .snByac {
+                    content: 'Ký tên' !important;
+                  }
+                }
+              }
+            }
+          }
         }
       }
       .featured-comment {
@@ -47,6 +64,10 @@
           line-height: 2rem;
         }
         margin-bottom: 5rem;
+        .comment-box {
+          padding: 1.25rem;
+          border-radius: 1.5rem;
+        }
       }
     }
   }
@@ -86,7 +107,7 @@
           width: 640px;
         }
         .gg-iframe {
-          height: 60rem;
+          height: 62rem;
           iframe {
             width: 680px;
           }
@@ -129,7 +150,7 @@
           margin-bottom: 2rem;
         }
         .gg-iframe {
-          height: 65rem;
+          height: 68rem;
           padding-left: 3rem;
           iframe {
             width: 500px;
@@ -138,6 +159,10 @@
         .featured-comment {
           width: 480px;
           margin-left: 2.5rem;
+          .comment-box {
+            padding: 1.25rem;
+            border-radius: 1.5rem;
+          }
         }
       }
     }
@@ -155,10 +180,6 @@
       .petition-gg-form {
         .featured-comment {
           margin-left: 2rem;
-          .comment-box {
-            padding: 1.25rem;
-            border-radius: 1.5rem;
-          }
         }
       }
       .petition-content-container {
