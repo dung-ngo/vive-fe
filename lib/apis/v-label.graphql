@@ -8,12 +8,17 @@ query GetVLabel($locale: I18NLocaleCode) {
         contentImage1 {
           ...PhotoUrl
         }
+        titlePage
+        descriptionPage
         content
         txtButton
         hyperlink
         titleListLogos
         listLogos {
           ...LogoDetail
+        }
+        thumbnail {
+          ...PhotoUrl
         }
         seo {
           ...Seo

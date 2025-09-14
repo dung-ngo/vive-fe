@@ -21,6 +21,14 @@ module.exports = {
         hostname: 'cms-vive.huynhtuan.dev',
       },
       {
+        protocol: 'https',
+        hostname: 'www.facebook.com',
+      },
+      {
+        protocol: 'http',
+        hostname: '198.252.107.235',
+      },
+      {
         protocol: 'http',
         hostname: '127.0.0.1',
       },
@@ -129,6 +137,10 @@ module.exports = {
           source:
             '/:slug(tin-tuc/suc-khoe|tin-tuc/dong-vat|tin-tuc/moi-truong|news/health|news/animals|news/environment)',
           destination: '/listing/:slug*',
+        },
+        {
+          source: '/(don-thinh-cau|petition)/:slug',
+          destination: '/petition/:slug',
         },
       ],
     };

@@ -1,0 +1,197 @@
+// mobile view
+.vive-petition-screen {
+  margin-top: -2.5rem;
+  margin-bottom: 0;
+  padding: 0 1rem;
+  section.petition-form-container {
+    .petition-content-container {
+      h1 {
+        font-size: 2rem;
+        color: var(--primary);
+        margin: 0 auto 30px;
+        line-height: 2rem;
+      }
+      .petition-content-1 {
+        margin-bottom: 3rem;
+      }
+      .petition-content-2 {
+        h2 {
+          font-size: 2rem;
+          color: var(--primary);
+          margin: 30px auto;
+          line-height: 2rem;
+        }
+        margin-bottom: 5rem;
+      }
+      .petition-video {
+        .youtube-video iframe {
+          height: 15rem;
+        }
+      }
+    }
+    .petition-gg-form {
+      margin-top: -1rem;
+      .signature-count {
+        width: 280px;
+        margin-left: 15px;
+      }
+      .gg-iframe {
+        height: 85rem;
+        iframe body .quantumWizButtonPaperbuttonEl {
+          background-color: #03c480 !important; /* Change button color */
+          color: white !important; /* Change text color */
+          font-weight: bold !important; /* Make text bold */
+        }
+        iframe {
+          width: 310px;
+          form {
+            .RH5hzf {
+              .QvWxOd {
+                background-color: var(--secondary) !important;
+                span.l4V7wb .Fxmcue {
+                  span.NPEfkd .RveJvd .snByac {
+                    content: 'Ký tên' !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .featured-comment {
+        h2 {
+          font-size: 2rem;
+          color: var(--primary);
+          margin: 30px auto;
+          line-height: 2rem;
+        }
+        margin-bottom: 5rem;
+        .comment-box {
+          padding: 0.8rem 1.25rem 1.25rem 1.25rem;
+          border-radius: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+// mobile view (bigger width)
+@media only screen and (min-width: 400px) {
+  .vive-petition-screen {
+    margin-bottom: 0;
+    padding: 0 1rem;
+    section.petition-form-container {
+      .petition-gg-form {
+        .signature-count {
+          width: 320px;
+          // margin-left: 15px;
+        }
+        .gg-iframe {
+          height: 80rem;
+          iframe {
+            width: 350px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// tablet view (ipad mini + ipad air)
+@media only screen and (min-width: 768px) {
+  .vive-petition-screen {
+    margin-bottom: 0;
+    padding: 0 2rem;
+    section.petition-form-container {
+      .petition-gg-form {
+        .signature-count {
+          padding-left: 1rem;
+          width: 640px;
+        }
+        .gg-iframe {
+          height: 62rem;
+          iframe {
+            width: 680px;
+          }
+        }
+        .featured-comment {
+          width: 650px;
+          padding-left: 2rem;
+        }
+      }
+      .petition-content-container {
+        padding: 0 1rem;
+        .petition-video {
+          .youtube-video iframe {
+            height: 25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ipad pro view
+@media only screen and (min-width: 1024px) {
+  .vive-petition-screen {
+    section.petition-form-container {
+      display: flex;
+      flex-direction: row-reverse;
+      .petition-content-container {
+        .petition-video {
+          .youtube-video iframe {
+            width: 100%;
+            height: 15rem;
+          }
+        }
+      }
+      .petition-gg-form {
+        .signature-count {
+          padding-left: 3.5rem;
+          width: 510px;
+          margin-bottom: 2rem;
+        }
+        .gg-iframe {
+          height: 68rem;
+          padding-left: 3rem;
+          iframe {
+            width: 500px;
+          }
+        }
+        .featured-comment {
+          width: 480px;
+          margin-left: 2.5rem;
+          .comment-box {
+            padding: 0.8rem 1.25rem 1.25rem 1.25rem;
+            border-radius: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// pc view
+@media only screen and (min-width: 1200px) {
+  .vive-petition-screen {
+    padding: 0 2rem;
+    section.petition-form-container {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0;
+      .petition-gg-form {
+        .featured-comment {
+          margin-left: 2rem;
+        }
+      }
+      .petition-content-container {
+        .petition-video {
+          .youtube-video iframe {
+            width: 100%;
+            height: 20rem;
+          }
+        }
+      }
+    }
+  }
+}

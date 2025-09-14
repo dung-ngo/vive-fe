@@ -1,6 +1,6 @@
-// @import 'tailwindcss/base';
-// @import 'tailwindcss/components';
-// @import 'tailwindcss/utilities';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 // variables
 @import './variables/color.scss';
@@ -57,3 +57,4 @@
 @import './screens/Donation.scss';
 @import './screens/Volunteer.scss';
 @import './screens/Membership.scss';
+@import './screens/Petitions.scss';

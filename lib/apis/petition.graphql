@@ -1,0 +1,46 @@
+#import "./fragments.graphql"
+
+query GetPetition($locale: I18NLocaleCode) {
+  petition(locale: $locale) {
+    data {
+      attributes {
+        pageName
+        titlePage
+        slug
+        descriptionPage
+        thumbnail {
+          ...PhotoUrl
+        }
+        targetNumber
+        titleCampaign1
+        descriptionCampaign1
+        videoId
+        titleCampaign2
+        descriptionCampaign2
+        formId
+        sheetId
+        listComments {
+          id
+          userName
+          userComment
+          userImage {
+            ...PhotoUrl
+          }
+        }
+        seo {
+          ...Seo
+        }
+      }
+    }
+  }
+}
+
+query GetPetitionSlug($locale: I18NLocaleCode) {
+  petition(locale: $locale) {
+    data {
+      attributes {
+        slug
+      }
+    }
+  }
+}

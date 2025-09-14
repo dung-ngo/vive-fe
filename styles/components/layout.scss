@@ -241,6 +241,7 @@ body {
             overflow: hidden !important;
             top: 100% !important;
             .header-link-item {
+              cursor: pointer;
               height: 46px;
               padding: 0 12px;
               display: flex;
@@ -253,6 +254,7 @@ body {
           }
         }
         .header-link-item {
+          cursor: pointer;
           color: var(--white);
           &:hover {
             :not(.button) {
@@ -280,6 +282,7 @@ body {
         background-color: white;
         section.header-menu {
           .header-link-item {
+            cursor: pointer;
             .button {
               border: 1px solid var(--dark);
               border-radius: 20px;

@@ -1,4 +1,3 @@
-import { sanitize } from 'isomorphic-dompurify';
 import ReactMarkdown from 'react-markdown';
 
 type Props = {
@@ -6,8 +5,6 @@ type Props = {
 };
 
 const MarkdownContent = ({ content }: Props) => {
-  const cleanContent = sanitize(content, { USE_PROFILES: { html: true } });
-
   return (
     <div className="markdown">
       <ReactMarkdown>{content}</ReactMarkdown>

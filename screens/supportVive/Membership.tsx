@@ -60,12 +60,13 @@ const MembershipScreen = ({
                 <p className="text-body tab-left">
                   {attributes.sectionImpactOfVegan.description}
                 </p>
-                <Link href={attributes.sectionImpactOfVegan.hyperlink || '#'}>
+                {/* (Dung_2024-Aug-08 Temporary deactivated this link) */}
+                {/* <Link href={attributes.sectionImpactOfVegan.hyperlink || '#'}>
                   <div className="text-btn">
                     Tham gia chiến dịch{' '}
                     <Image width={24} height={24} alt="" src={Arrow} />
                   </div>
-                </Link>
+                </Link> */}
               </article>
               <CircleImage
                 width={400}

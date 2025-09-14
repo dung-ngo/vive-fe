@@ -19,6 +19,7 @@
     border-radius: 8px;
     border: 1px solid #00000037;
     resize: none;
+    color: var(--darkest);
     &:focus {
       border-color: var(--secondary);
       box-shadow: 0 0 0 2px rgba(3, 196, 128, 0.2);

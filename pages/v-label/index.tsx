@@ -52,7 +52,20 @@ export default function VLabel({ vLabel }: { vLabel: GetVLabelQuery }) {
           />
         )}
       </Head>
-      <Layout simpleHeader noHelperSection className="v-label-layout">
+      <Layout
+        layoutProps={{
+          background: {
+            type: 'image',
+            src:
+              `${process.env.NEXT_PUBLIC_UPLOAD_URL}${attributes.thumbnail?.data?.attributes?.url}` ||
+              '',
+          },
+          headerContent: {
+            title: attributes.titlePage || '',
+            subTitle: attributes.descriptionPage || '',
+          },
+        }}
+      >
         <VLabelScreen vLabel={vLabel} />
       </Layout>
     </>

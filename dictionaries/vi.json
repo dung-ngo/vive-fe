@@ -22,7 +22,8 @@
     "cauHoiThuongGap": "Câu hỏi thường gặp",
     "banCanBiet": "Bạn cần biết",
     "veChungToi": "Về chúng tôi",
-    "doiNguSongThuanChay": "Đội ngũ Vive",
+    "doiNguVive": "Đội ngũ Vive",
+    "vegFest": "Vegfest",
     "lienHe": "Liên hệ",
     "anChoTuongLai": "Eat for the Future",
     "gocBep": "Góc bếp",
@@ -42,7 +43,8 @@
     "tieude": "Thử Thách 7 Ngày Thuần Chay",
     "dongGopKhac": "Đóng góp khác",
     "dangKyThanhVien": "Đăng ký thành viên",
-    "tinhNguyenVien": "Tình nguyện viên"
+    "tinhNguyenVien": "Tình nguyện viên",
+    "petitions": "Đơn thỉnh cầu"
   },
   "thuThach7NgayThuanChay": "Thử Thách 7 Ngày Thuần Chay",
   "dangKyThamGia": "Đăng ký tham gia",
@@ -118,5 +120,21 @@
   "register": {
     "tieude": "Thử Thách 7 Ngày Thuần Chay"
   },
-  "exploreMoreButton": "Tìm hiểu thêm"
+  "exploreMoreButton": "Tìm hiểu thêm",
+  "petition": {
+    "headTitle": "LỢN ĐANG TRẢI QUA CƠN ĐAU TẬN CÙNG",
+    "subHeadTitle": "SAO LÀM TRÁI LUẬT PHÁP VIỆT NAM?",
+    "title": "Cơn đau này là trái với luật pháp",
+    "content1": "Mỗi đêm, tại một lò mổ nhỏ, khoảng 20 con lợn bị giết thịt một cách tàn bạo. Với móc sắt đâm xuyên qua miệng, chúng bị kéo lê trên sàn bê tông lạnh lẽo, giữa những tiếng kêu thét kinh hãi của đồng loại. Đôi mắt chúng mở to lộ rõ vẻ sợ sệt, khi chúng bị đẩy vào chiếc lồng sắt chật hẹp, nơi số phận chúng chắc chắn sẽ kết thúc. Trong tình trạng hoàn toàn tỉnh táo, không gây mê – chỉ có lưỡi dao lạnh cứa vào cổ họng để máu trào ra trong vòng 1 phút đến khi chết. Đồng loại phải chứng kiến cảnh chúng giãy chết mà không thể làm gì ngoài chờ đợi đến lượt mình. Ước tính 80% số lợn ở Việt Nam (50 triệu con/năm) bị giết mổ tàn bạo theo cách tương tự. Điều này đang vi phạm Luật Chăn nuôi Việt Nam, trong đó quy định: “Cơ sở giết mổ phải hạn chế gây sợ hãi, đau đớn cho vật nuôi; không đánh đập, hành hạ; phải có biện pháp gây ngất trước khi giết mổ và không để vật nuôi chứng kiến đồng loại bị giết”. Dù Việt Nam là quốc gia sản xuất thịt lợn lớn thứ hai ở châu Á, thực trạng này dấy lên nhiều lo ngại về đảm bảo phúc lợi động vật và sự thiếu giám sát thực thi luật pháp. Dẫu biết cuộc sống của lợn rồi cũng sẽ kết thúc, tuy nhiên, chúng không phải là một mặt hàng buôn bán vô tri. Khoa học đã chứng minh lợn có hệ thần kinh phức tạp giống như chó và con người, chúng cảm nhận được nỗi đau, sợ hãi và hoảng loạn. Đừng để chúng chết trong sự đau khổ! Hãy ký tên ngay để chấm dứt sự tình trạng này!",
+    "content2": "Ước tính 80% số lợn ở Việt Nam (50 triệu con/năm) bị giết mổ tàn bạo theo cách tương tự. Điều này đang vi phạm Luật Chăn nuôi Việt Nam, trong đó quy định: “Cơ sở giết mổ phải hạn chế gây sợ hãi, đau đớn cho vật nuôi; không đánh đập, hành hạ; phải có biện pháp gây ngất trước khi giết mổ và không để vật nuôi chứng kiến đồng loại bị giết”. Dù Việt Nam là quốc gia sản xuất thịt lợn lớn thứ hai ở châu Á, thực trạng này dấy lên nhiều lo ngại về đảm bảo phúc lợi động vật và sự thiếu giám sát thực thi luật pháp. Dẫu biết cuộc sống của lợn rồi cũng sẽ kết thúc, tuy nhiên, chúng không phải là một mặt hàng buôn bán vô tri. Khoa học đã chứng minh lợn có hệ thần kinh phức tạp giống như chó và con người, chúng cảm nhận được nỗi đau, sợ hãi và hoảng loạn. Đừng để chúng chết trong sự đau khổ! Hãy ký tên ngay để chấm dứt sự tình trạng này!",
+    "content3": "Dẫu biết cuộc sống của lợn rồi cũng sẽ kết thúc, tuy nhiên, chúng không phải là một mặt hàng buôn bán vô tri. Khoa học đã chứng minh lợn có hệ thần kinh phức tạp giống như chó và con người, chúng cảm nhận được nỗi đau, sợ hãi và hoảng loạn. Đừng để chúng chết trong sự đau khổ! Hãy ký tên ngay để chấm dứt sự tình trạng này!",
+    "subTitle": "Hành động giúp lợn",
+    "subContent1": "Chữ ký của bạn có thể xóa bỏ cơn đau mà lợn hiện đang trải qua. Không tốn tiền.",
+    "subContent2": "Chỉ cần 10 giây.",
+    "subContent3": "Các chữ ký từ người đồng thuận sẽ được gửi cho Cục Chăn nuôi, Bộ Nông nghiệp và Phát triển nông thôn, để xem xét và can thiệp kịp thời.",
+    "targetContent1": "người đã ký đơn thỉnh cầu.",
+    "targetContent2": "Hãy cùng chúng tôi đạt được",
+    "targetContent3": "người ký.",
+    "featuredComment": "Bình luận nổi bật"
+  }
 }

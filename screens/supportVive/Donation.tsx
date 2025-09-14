@@ -85,7 +85,7 @@ const DonationScreen = ({ donation }: { donation: GetDonationQuery }) => {
                 <div
                   className="donation-iframe-box"
                   style={{
-                    height: '700px',
+                    height: '1000px',
                     maxHeight: '1000px',
                     overflow: 'auto',
                   }}

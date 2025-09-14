@@ -34,6 +34,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
 export default function Donation({ donation }: { donation: GetDonationQuery }) {
   const attributes = donation.donation?.data?.attributes;
+  console.log('donation ', donation);
   if (!attributes) {
     return 'No data';
   }

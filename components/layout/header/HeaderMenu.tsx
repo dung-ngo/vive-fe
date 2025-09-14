@@ -1,14 +1,59 @@
 import useTranslations from '@/hooks/useTranslations';
+import client from '@/lib/apolloClient';
+import {
+  GetPetitionDocument,
+  GetPetitionQuery,
+  GetPetitionQueryVariables,
+} from '@/lib/gql/graphql';
 import { direct } from '@/utils/link.util';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 type Props = {};
 
 const HeaderMenu = () => {
   const { locale } = useRouter();
   const t = useTranslations();
+  const [dropdownItemsNews, setDropdownItemsNews] = useState([
+    { content: t.header.tatCaTinTuc, link: direct('news', locale) },
+    { content: t.header.sucKhoe, link: direct('news+health', locale) },
+    { content: t.header.dongVat, link: direct('news+animals', locale) },
+    {
+      content: t.header.moiTruong,
+      link: direct('news+environment', locale),
+    },
+  ]);
+
+  async function fetchPetitionSlug() {
+    let { data, errors } = await client.query<
+      GetPetitionQuery,
+      GetPetitionQueryVariables
+    >({
+      query: GetPetitionDocument,
+      variables: {
+        locale: locale,
+      },
+    });
+    if (errors) {
+      console.log('fetchPetitionSlug --errors: ', errors);
+      return;
+    }
+    if (data?.petition?.data?.attributes?.slug) {
+      setDropdownItemsNews([
+        // {
+        //   content: t.header.petitions,
+        //   link: `/petition/${data.petition.data.attributes.slug}`,
+        // },
+        ...dropdownItemsNews,
+      ]);
+    }
+  }
+
+  useEffect(() => {
+    fetchPetitionSlug();
+  }, []);
+
   return (
     <section className="header-menu">
       <HeaderDropdownItem
@@ -30,24 +75,29 @@ const HeaderMenu = () => {
         links={[
           { content: t.header.veChungToi, link: direct('about-us', locale) },
           {
-            content: t.header.doiNguSongThuanChay,
-            link: direct('join-us', locale),
+            content: t.header.vegFest,
+            link: 'https://www.vegfestvietnam.vn',
           },
-          { content: t.header.lienHe, link: direct('contact-us', locale) },
           {
             content: t.header.anChoTuongLai,
             link: direct('eat-for-the-future', locale),
           },
+          {
+            content: t.header.doiNguVive,
+            link: direct('join-us', locale),
+          },
+          { content: t.header.lienHe, link: direct('contact-us', locale) },
         ]}
       />
       <HeaderDropdownItem
         content={t.header.gocBep}
         links={[
-          { content: t.header.gocBep, link: direct('vegan-food', locale) },
-          {
-            content: t.header.reviewQuanAn,
-            link: direct('review-restaurant', locale),
-          },
+          // (Dung_2024-Aug-27) Temporary deactivate Goc Bep and Review quan an page
+          // { content: t.header.gocBep, link: direct('vegan-food', locale) },
+          // {
+          //   content: t.header.reviewQuanAn,
+          //   link: direct('review-restaurant', locale),
+          // },
           {
             content: t.header.congThucNauAn,
             link: direct('recipe-vegan', locale),
@@ -58,18 +108,7 @@ const HeaderMenu = () => {
           },
         ]}
       />
-      <HeaderDropdownItem
-        content={t.header.tinTuc}
-        links={[
-          { content: t.header.tatCaTinTuc, link: direct('news', locale) },
-          { content: t.header.sucKhoe, link: direct('news+health', locale) },
-          { content: t.header.dongVat, link: direct('news+animals', locale) },
-          {
-            content: t.header.moiTruong,
-            link: direct('news+environment', locale),
-          },
-        ]}
-      />
+      <HeaderDropdownItem content={t.header.tinTuc} links={dropdownItemsNews} />
       <HeaderLinkItem content={t.header.phim} link={direct('film', locale)} />
       <HeaderLinkItem
         content={t.header.vLabel}
@@ -102,11 +141,28 @@ type PHeaderLinkItem = {
   className?: string;
 };
 
-const HeaderLinkItem = ({ link, content, className = '' }: PHeaderLinkItem) => (
-  <Link href={link} className="header-link-item">
-    <div className={className}>{content}</div>
-  </Link>
-);
+const HeaderLinkItem = ({ link, content, className = '' }: PHeaderLinkItem) => {
+  const router = useRouter();
+
+  function handleGotoLink(link: string) {
+    if (new RegExp(/^\/(en\/)?(petition|don-thinh-cau)/).test(link)) {
+      router
+        .push(link, undefined, {
+          locale: router.locale,
+        })
+        .then(() => router.reload());
+    } else {
+      router.push(link, undefined, {
+        locale: router.locale,
+      });
+    }
+  }
+  return (
+    <div onClick={() => handleGotoLink(link)} className="header-link-item">
+      <div className={className}>{content}</div>
+    </div>
+  );
+};
 
 type PHeaderDropdownItem = {
   links: PHeaderLinkItem[];

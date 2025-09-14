@@ -1,4 +1,4 @@
-import { FormEvent, memo, useRef, useState } from 'react';
+import { FormEvent, memo, useEffect, useRef, useState } from 'react';
 import Tick from '../../../assets/svgs/circle-tick.svg';
 import Image from 'next/image';
 import PrimaryButton from '@/components/PrimaryButton';
@@ -11,6 +11,7 @@ import {
 import useTranslations from '@/hooks/useTranslations';
 import ModalConfirm from '@/components/ModalConfirm';
 import { ListTextFragment } from '@/lib/gql/graphql';
+import { waitForFbq, event } from '@/libs/fbpixel';
 
 const ChallengeRegister = ({
   titleVeganChallenge,
@@ -46,6 +47,17 @@ const ChallengeRegister = ({
     setOpenModalConfirm(true);
     resetForm();
   };
+  useEffect(() => {
+    if (openModalConfirm) {
+      waitForFbq(() => {
+        console.log('wait ', window);
+        event('OpenChallengeModal', {
+          content_category: 'Challenge_Form',
+          content_name: 'Challenge Form Modal',
+        });
+      });
+    }
+  }, [openModalConfirm]);
   return (
     <section className="vive-challenge-register">
       <div className="challenge-content">

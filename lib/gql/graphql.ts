@@ -372,6 +372,29 @@ export type ComponentSectionActivityInput = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ComponentSectionComment = {
+  __typename?: 'ComponentSectionComment';
+  id: Scalars['ID']['output'];
+  userComment?: Maybe<Scalars['String']['output']>;
+  userImage: UploadFileEntityResponse;
+  userName?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentSectionCommentFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentSectionCommentFiltersInput>>>;
+  not?: InputMaybe<ComponentSectionCommentFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentSectionCommentFiltersInput>>>;
+  userComment?: InputMaybe<StringFilterInput>;
+  userName?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentSectionCommentInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  userComment?: InputMaybe<Scalars['String']['input']>;
+  userImage?: InputMaybe<Scalars['ID']['input']>;
+  userName?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ComponentSectionFaq = {
   __typename?: 'ComponentSectionFaq';
   answer: Scalars['String']['output'];
@@ -861,6 +884,7 @@ export type GenericMorph =
   | ChinhSachBaoMat
   | ChinhSachLienKet
   | ComponentSectionActivity
+  | ComponentSectionComment
   | ComponentSectionFaq
   | ComponentSectionImage
   | ComponentSectionListText
@@ -880,6 +904,7 @@ export type GenericMorph =
   | LienHe
   | Membership
   | NhungCauHoiThuongGap
+  | Petition
   | Phim
   | PocketBook
   | Post
@@ -1180,6 +1205,7 @@ export type Mutation = {
   createLienHeLocalization?: Maybe<LienHeEntityResponse>;
   createMembershipLocalization?: Maybe<MembershipEntityResponse>;
   createNhungCauHoiThuongGapLocalization?: Maybe<NhungCauHoiThuongGapEntityResponse>;
+  createPetitionLocalization?: Maybe<PetitionEntityResponse>;
   createPhimLocalization?: Maybe<PhimEntityResponse>;
   createPocketBookLocalization?: Maybe<PocketBookEntityResponse>;
   createPost?: Maybe<PostEntityResponse>;
@@ -1214,6 +1240,7 @@ export type Mutation = {
   deleteLienHe?: Maybe<LienHeEntityResponse>;
   deleteMembership?: Maybe<MembershipEntityResponse>;
   deleteNhungCauHoiThuongGap?: Maybe<NhungCauHoiThuongGapEntityResponse>;
+  deletePetition?: Maybe<PetitionEntityResponse>;
   deletePhim?: Maybe<PhimEntityResponse>;
   deletePocketBook?: Maybe<PocketBookEntityResponse>;
   deletePost?: Maybe<PostEntityResponse>;
@@ -1262,6 +1289,7 @@ export type Mutation = {
   updateLienHe?: Maybe<LienHeEntityResponse>;
   updateMembership?: Maybe<MembershipEntityResponse>;
   updateNhungCauHoiThuongGap?: Maybe<NhungCauHoiThuongGapEntityResponse>;
+  updatePetition?: Maybe<PetitionEntityResponse>;
   updatePhim?: Maybe<PhimEntityResponse>;
   updatePocketBook?: Maybe<PocketBookEntityResponse>;
   updatePost?: Maybe<PostEntityResponse>;
@@ -1373,6 +1401,12 @@ export type MutationCreateMembershipLocalizationArgs = {
 
 export type MutationCreateNhungCauHoiThuongGapLocalizationArgs = {
   data?: InputMaybe<NhungCauHoiThuongGapInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationCreatePetitionLocalizationArgs = {
+  data?: InputMaybe<PetitionInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -1526,6 +1560,10 @@ export type MutationDeleteMembershipArgs = {
 };
 
 export type MutationDeleteNhungCauHoiThuongGapArgs = {
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationDeletePetitionArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
@@ -1727,6 +1765,11 @@ export type MutationUpdateNhungCauHoiThuongGapArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
+export type MutationUpdatePetitionArgs = {
+  data: PetitionInput;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
 export type MutationUpdatePhimArgs = {
   data: PhimInput;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
@@ -1873,13 +1916,75 @@ export type PaginationArg = {
   start?: InputMaybe<Scalars['Int']['input']>;
 };
 
+export type Petition = {
+  __typename?: 'Petition';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  descriptionCampaign1?: Maybe<Scalars['String']['output']>;
+  descriptionCampaign2?: Maybe<Scalars['String']['output']>;
+  descriptionPage?: Maybe<Scalars['String']['output']>;
+  formId?: Maybe<Scalars['String']['output']>;
+  listComments?: Maybe<Array<Maybe<ComponentSectionComment>>>;
+  locale?: Maybe<Scalars['String']['output']>;
+  localizations?: Maybe<PetitionRelationResponseCollection>;
+  pageName: Scalars['String']['output'];
+  seo?: Maybe<ComponentSharedSeo>;
+  sheetId?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  targetNumber?: Maybe<Scalars['Int']['output']>;
+  thumbnail: UploadFileEntityResponse;
+  titleCampaign1?: Maybe<Scalars['String']['output']>;
+  titleCampaign2?: Maybe<Scalars['String']['output']>;
+  titlePage?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  videoId?: Maybe<Scalars['String']['output']>;
+};
+
+export type PetitionListCommentsArgs = {
+  filters?: InputMaybe<ComponentSectionCommentFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type PetitionEntity = {
+  __typename?: 'PetitionEntity';
+  attributes?: Maybe<Petition>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type PetitionEntityResponse = {
+  __typename?: 'PetitionEntityResponse';
+  data?: Maybe<PetitionEntity>;
+};
+
+export type PetitionInput = {
+  descriptionCampaign1?: InputMaybe<Scalars['String']['input']>;
+  descriptionCampaign2?: InputMaybe<Scalars['String']['input']>;
+  descriptionPage?: InputMaybe<Scalars['String']['input']>;
+  formId?: InputMaybe<Scalars['String']['input']>;
+  listComments?: InputMaybe<Array<InputMaybe<ComponentSectionCommentInput>>>;
+  pageName?: InputMaybe<Scalars['String']['input']>;
+  seo?: InputMaybe<ComponentSharedSeoInput>;
+  sheetId?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  targetNumber?: InputMaybe<Scalars['Int']['input']>;
+  thumbnail?: InputMaybe<Scalars['ID']['input']>;
+  titleCampaign1?: InputMaybe<Scalars['String']['input']>;
+  titleCampaign2?: InputMaybe<Scalars['String']['input']>;
+  titlePage?: InputMaybe<Scalars['String']['input']>;
+  videoId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PetitionRelationResponseCollection = {
+  __typename?: 'PetitionRelationResponseCollection';
+  data: Array<PetitionEntity>;
+};
+
 export type Phim = {
   __typename?: 'Phim';
-  canCanhButtonText?: Maybe<Scalars['String']['output']>;
-  canCanhLink?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   descriptionPage?: Maybe<Scalars['String']['output']>;
   descriptionWhatIsVegan?: Maybe<Scalars['String']['output']>;
+  exploreMoreLink?: Maybe<Scalars['String']['output']>;
   locale?: Maybe<Scalars['String']['output']>;
   localizations?: Maybe<PhimRelationResponseCollection>;
   pageName: Scalars['String']['output'];
@@ -1890,7 +1995,6 @@ export type Phim = {
   titlePage?: Maybe<Scalars['String']['output']>;
   titleWhatIsVegan?: Maybe<Scalars['String']['output']>;
   titleWhyVegan?: Maybe<Scalars['String']['output']>;
-  exploreMoreLink?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -1912,10 +2016,9 @@ export type PhimEntityResponse = {
 };
 
 export type PhimInput = {
-  canCanhButtonText?: InputMaybe<Scalars['String']['input']>;
-  canCanhLink?: InputMaybe<Scalars['String']['input']>;
   descriptionPage?: InputMaybe<Scalars['String']['input']>;
   descriptionWhatIsVegan?: InputMaybe<Scalars['String']['input']>;
+  exploreMoreLink?: InputMaybe<Scalars['String']['input']>;
   pageName?: InputMaybe<Scalars['String']['input']>;
   sectionReasons?: InputMaybe<Array<InputMaybe<ComponentSectionSectionInput>>>;
   seo?: InputMaybe<ComponentSharedSeoInput>;
@@ -1924,7 +2027,6 @@ export type PhimInput = {
   titlePage?: InputMaybe<Scalars['String']['input']>;
   titleWhatIsVegan?: InputMaybe<Scalars['String']['input']>;
   titleWhyVegan?: InputMaybe<Scalars['String']['input']>;
-  exploreMoreLink?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PhimRelationResponseCollection = {
@@ -2085,6 +2187,7 @@ export type Query = {
   me?: Maybe<UsersPermissionsMe>;
   membership?: Maybe<MembershipEntityResponse>;
   nhungCauHoiThuongGap?: Maybe<NhungCauHoiThuongGapEntityResponse>;
+  petition?: Maybe<PetitionEntityResponse>;
   phim?: Maybe<PhimEntityResponse>;
   pocketBook?: Maybe<PocketBookEntityResponse>;
   post?: Maybe<PostEntityResponse>;
@@ -2181,6 +2284,10 @@ export type QueryMembershipArgs = {
 };
 
 export type QueryNhungCauHoiThuongGapArgs = {
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type QueryPetitionArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
@@ -3092,12 +3199,15 @@ export type VLabel = {
   contentImage1?: Maybe<UploadFileEntityResponse>;
   contentTitle1?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  descriptionPage?: Maybe<Scalars['String']['output']>;
   hyperlink?: Maybe<Scalars['String']['output']>;
   listLogos?: Maybe<Array<Maybe<ComponentSectionLogo>>>;
   locale?: Maybe<Scalars['String']['output']>;
   localizations?: Maybe<VLabelRelationResponseCollection>;
   seo?: Maybe<ComponentSharedSeo>;
+  thumbnail: UploadFileEntityResponse;
   titleListLogos?: Maybe<Scalars['String']['output']>;
+  titlePage?: Maybe<Scalars['String']['output']>;
   txtButton?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
@@ -3123,10 +3233,13 @@ export type VLabelInput = {
   content?: InputMaybe<Scalars['String']['input']>;
   contentImage1?: InputMaybe<Scalars['ID']['input']>;
   contentTitle1?: InputMaybe<Scalars['String']['input']>;
+  descriptionPage?: InputMaybe<Scalars['String']['input']>;
   hyperlink?: InputMaybe<Scalars['String']['input']>;
   listLogos?: InputMaybe<Array<InputMaybe<ComponentSectionLogoInput>>>;
   seo?: InputMaybe<ComponentSharedSeoInput>;
+  thumbnail?: InputMaybe<Scalars['ID']['input']>;
   titleListLogos?: InputMaybe<Scalars['String']['input']>;
+  titlePage?: InputMaybe<Scalars['String']['input']>;
   txtButton?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -4685,6 +4798,90 @@ export type GetNhungCauHoiThuongGapQuery = {
   } | null;
 };
 
+export type GetPetitionQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
+
+export type GetPetitionQuery = {
+  __typename?: 'Query';
+  petition?: {
+    __typename?: 'PetitionEntityResponse';
+    data?: {
+      __typename?: 'PetitionEntity';
+      attributes?: {
+        __typename?: 'Petition';
+        pageName: string;
+        titlePage?: string | null;
+        slug: string;
+        descriptionPage?: string | null;
+        targetNumber?: number | null;
+        titleCampaign1?: string | null;
+        descriptionCampaign1?: string | null;
+        videoId?: string | null;
+        titleCampaign2?: string | null;
+        descriptionCampaign2?: string | null;
+        formId?: string | null;
+        sheetId?: string | null;
+        thumbnail: {
+          __typename?: 'UploadFileEntityResponse';
+          data?: {
+            __typename?: 'UploadFileEntity';
+            attributes?: {
+              __typename?: 'UploadFile';
+              url: string;
+              caption?: string | null;
+            } | null;
+          } | null;
+        };
+        listComments?: Array<{
+          __typename?: 'ComponentSectionComment';
+          id: string;
+          userName?: string | null;
+          userComment?: string | null;
+          userImage: {
+            __typename?: 'UploadFileEntityResponse';
+            data?: {
+              __typename?: 'UploadFileEntity';
+              attributes?: {
+                __typename?: 'UploadFile';
+                url: string;
+                caption?: string | null;
+              } | null;
+            } | null;
+          };
+        } | null> | null;
+        seo?: {
+          __typename?: 'ComponentSharedSeo';
+          metaTitle: string;
+          metaDescription: string;
+          metaImage?: {
+            __typename?: 'UploadFileEntityResponse';
+            data?: {
+              __typename?: 'UploadFileEntity';
+              attributes?: { __typename?: 'UploadFile'; url: string } | null;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type GetPetitionSlugQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
+
+export type GetPetitionSlugQuery = {
+  __typename?: 'Query';
+  petition?: {
+    __typename?: 'PetitionEntityResponse';
+    data?: {
+      __typename?: 'PetitionEntity';
+      attributes?: { __typename?: 'Petition'; slug: string } | null;
+    } | null;
+  } | null;
+};
+
 export type GetPhimQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 }>;
@@ -5358,6 +5555,8 @@ export type GetVLabelQuery = {
       attributes?: {
         __typename?: 'VLabel';
         contentTitle1?: string | null;
+        titlePage?: string | null;
+        descriptionPage?: string | null;
         content?: string | null;
         txtButton?: string | null;
         hyperlink?: string | null;
@@ -5389,6 +5588,17 @@ export type GetVLabelQuery = {
             } | null;
           };
         } | null> | null;
+        thumbnail: {
+          __typename?: 'UploadFileEntityResponse';
+          data?: {
+            __typename?: 'UploadFileEntity';
+            attributes?: {
+              __typename?: 'UploadFile';
+              url: string;
+              caption?: string | null;
+            } | null;
+          } | null;
+        };
         seo?: {
           __typename?: 'ComponentSharedSeo';
           metaTitle: string;
@@ -5927,12 +6137,17 @@ export function useGetAnChoTuongLaiLazyQuery(
   >(GetAnChoTuongLaiDocument, options);
 }
 export function useGetAnChoTuongLaiSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetAnChoTuongLaiQuery,
-    GetAnChoTuongLaiQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetAnChoTuongLaiQuery,
+        GetAnChoTuongLaiQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetAnChoTuongLaiQuery,
     GetAnChoTuongLaiQueryVariables
@@ -6020,12 +6235,17 @@ export function useGetBanCanBietLazyQuery(
   );
 }
 export function useGetBanCanBietSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetBanCanBietQuery,
-    GetBanCanBietQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetBanCanBietQuery,
+        GetBanCanBietQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetBanCanBietQuery,
     GetBanCanBietQueryVariables
@@ -6116,12 +6336,17 @@ export function useGetDoiNguSongThuanChayLazyQuery(
   >(GetDoiNguSongThuanChayDocument, options);
 }
 export function useGetDoiNguSongThuanChaySuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetDoiNguSongThuanChayQuery,
-    GetDoiNguSongThuanChayQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetDoiNguSongThuanChayQuery,
+        GetDoiNguSongThuanChayQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetDoiNguSongThuanChayQuery,
     GetDoiNguSongThuanChayQueryVariables
@@ -6200,12 +6425,17 @@ export function useGetGeneralLayoutLazyQuery(
   >(GetGeneralLayoutDocument, options);
 }
 export function useGetGeneralLayoutSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetGeneralLayoutQuery,
-    GetGeneralLayoutQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetGeneralLayoutQuery,
+        GetGeneralLayoutQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetGeneralLayoutQuery,
     GetGeneralLayoutQueryVariables
@@ -6291,12 +6521,17 @@ export function useGetDonationLazyQuery(
   );
 }
 export function useGetDonationSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetDonationQuery,
-    GetDonationQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetDonationQuery,
+        GetDonationQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<GetDonationQuery, GetDonationQueryVariables>(
     GetDonationDocument,
     options,
@@ -6389,12 +6624,17 @@ export function useGetHomePageLazyQuery(
   );
 }
 export function useGetHomePageSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetHomePageQuery,
-    GetHomePageQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetHomePageQuery,
+        GetHomePageQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<GetHomePageQuery, GetHomePageQueryVariables>(
     GetHomePageDocument,
     options,
@@ -6460,7 +6700,11 @@ export function useGetListReviewsQuery(
   baseOptions: Apollo.QueryHookOptions<
     GetListReviewsQuery,
     GetListReviewsQueryVariables
-  >,
+  > &
+    (
+      | { variables: GetListReviewsQueryVariables; skip?: boolean }
+      | { skip: boolean }
+    ),
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetListReviewsQuery, GetListReviewsQueryVariables>(
@@ -6481,12 +6725,17 @@ export function useGetListReviewsLazyQuery(
   );
 }
 export function useGetListReviewsSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetListReviewsQuery,
-    GetListReviewsQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetListReviewsQuery,
+        GetListReviewsQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetListReviewsQuery,
     GetListReviewsQueryVariables
@@ -6558,7 +6807,11 @@ export function useGetListRecipesQuery(
   baseOptions: Apollo.QueryHookOptions<
     GetListRecipesQuery,
     GetListRecipesQueryVariables
-  >,
+  > &
+    (
+      | { variables: GetListRecipesQueryVariables; skip?: boolean }
+      | { skip: boolean }
+    ),
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetListRecipesQuery, GetListRecipesQueryVariables>(
@@ -6579,12 +6832,17 @@ export function useGetListRecipesLazyQuery(
   );
 }
 export function useGetListRecipesSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetListRecipesQuery,
-    GetListRecipesQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetListRecipesQuery,
+        GetListRecipesQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetListRecipesQuery,
     GetListRecipesQueryVariables
@@ -6656,7 +6914,11 @@ export function useGetListPostsQuery(
   baseOptions: Apollo.QueryHookOptions<
     GetListPostsQuery,
     GetListPostsQueryVariables
-  >,
+  > &
+    (
+      | { variables: GetListPostsQueryVariables; skip?: boolean }
+      | { skip: boolean }
+    ),
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetListPostsQuery, GetListPostsQueryVariables>(
@@ -6677,12 +6939,17 @@ export function useGetListPostsLazyQuery(
   );
 }
 export function useGetListPostsSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetListPostsQuery,
-    GetListPostsQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetListPostsQuery,
+        GetListPostsQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<GetListPostsQuery, GetListPostsQueryVariables>(
     GetListPostsDocument,
     options,
@@ -6780,12 +7047,17 @@ export function useGetListPostsEnLazyQuery(
   );
 }
 export function useGetListPostsEnSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetListPostsEnQuery,
-    GetListPostsEnQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetListPostsEnQuery,
+        GetListPostsEnQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetListPostsEnQuery,
     GetListPostsEnQueryVariables
@@ -6862,7 +7134,11 @@ export function useGetListPostsByCategorySlugQuery(
   baseOptions: Apollo.QueryHookOptions<
     GetListPostsByCategorySlugQuery,
     GetListPostsByCategorySlugQueryVariables
-  >,
+  > &
+    (
+      | { variables: GetListPostsByCategorySlugQueryVariables; skip?: boolean }
+      | { skip: boolean }
+    ),
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
@@ -6883,12 +7159,17 @@ export function useGetListPostsByCategorySlugLazyQuery(
   >(GetListPostsByCategorySlugDocument, options);
 }
 export function useGetListPostsByCategorySlugSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetListPostsByCategorySlugQuery,
-    GetListPostsByCategorySlugQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetListPostsByCategorySlugQuery,
+        GetListPostsByCategorySlugQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetListPostsByCategorySlugQuery,
     GetListPostsByCategorySlugQueryVariables
@@ -6946,7 +7227,11 @@ export function useGetSearchPostsQuery(
   baseOptions: Apollo.QueryHookOptions<
     GetSearchPostsQuery,
     GetSearchPostsQueryVariables
-  >,
+  > &
+    (
+      | { variables: GetSearchPostsQueryVariables; skip?: boolean }
+      | { skip: boolean }
+    ),
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetSearchPostsQuery, GetSearchPostsQueryVariables>(
@@ -6967,12 +7252,17 @@ export function useGetSearchPostsLazyQuery(
   );
 }
 export function useGetSearchPostsSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetSearchPostsQuery,
-    GetSearchPostsQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetSearchPostsQuery,
+        GetSearchPostsQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetSearchPostsQuery,
     GetSearchPostsQueryVariables
@@ -7075,12 +7365,17 @@ export function useGetListPostsByCategorySlugEnLazyQuery(
   >(GetListPostsByCategorySlugEnDocument, options);
 }
 export function useGetListPostsByCategorySlugEnSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetListPostsByCategorySlugEnQuery,
-    GetListPostsByCategorySlugEnQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetListPostsByCategorySlugEnQuery,
+        GetListPostsByCategorySlugEnQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetListPostsByCategorySlugEnQuery,
     GetListPostsByCategorySlugEnQueryVariables
@@ -7171,12 +7466,17 @@ export function useGetReviewsByEnLazyQuery(
   );
 }
 export function useGetReviewsByEnSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetReviewsByEnQuery,
-    GetReviewsByEnQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetReviewsByEnQuery,
+        GetReviewsByEnQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetReviewsByEnQuery,
     GetReviewsByEnQueryVariables
@@ -7267,12 +7567,17 @@ export function useGetListRecipesByEnLazyQuery(
   >(GetListRecipesByEnDocument, options);
 }
 export function useGetListRecipesByEnSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetListRecipesByEnQuery,
-    GetListRecipesByEnQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetListRecipesByEnQuery,
+        GetListRecipesByEnQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetListRecipesByEnQuery,
     GetListRecipesByEnQueryVariables
@@ -7369,12 +7674,17 @@ export function useGetMembershipLazyQuery(
   );
 }
 export function useGetMembershipSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetMembershipQuery,
-    GetMembershipQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetMembershipQuery,
+        GetMembershipQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetMembershipQuery,
     GetMembershipQueryVariables
@@ -7455,12 +7765,17 @@ export function useGetNhungCauHoiThuongGapLazyQuery(
   >(GetNhungCauHoiThuongGapDocument, options);
 }
 export function useGetNhungCauHoiThuongGapSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetNhungCauHoiThuongGapQuery,
-    GetNhungCauHoiThuongGapQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetNhungCauHoiThuongGapQuery,
+        GetNhungCauHoiThuongGapQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetNhungCauHoiThuongGapQuery,
     GetNhungCauHoiThuongGapQueryVariables
@@ -7478,6 +7793,195 @@ export type GetNhungCauHoiThuongGapSuspenseQueryHookResult = ReturnType<
 export type GetNhungCauHoiThuongGapQueryResult = Apollo.QueryResult<
   GetNhungCauHoiThuongGapQuery,
   GetNhungCauHoiThuongGapQueryVariables
+>;
+export const GetPetitionDocument = gql`
+  query GetPetition($locale: I18NLocaleCode) {
+    petition(locale: $locale) {
+      data {
+        attributes {
+          pageName
+          titlePage
+          slug
+          descriptionPage
+          thumbnail {
+            ...PhotoUrl
+          }
+          targetNumber
+          titleCampaign1
+          descriptionCampaign1
+          videoId
+          titleCampaign2
+          descriptionCampaign2
+          formId
+          sheetId
+          listComments {
+            id
+            userName
+            userComment
+            userImage {
+              ...PhotoUrl
+            }
+          }
+          seo {
+            ...Seo
+          }
+        }
+      }
+    }
+  }
+  ${PhotoUrlFragmentDoc}
+  ${SeoFragmentDoc}
+`;
+
+/**
+ * __useGetPetitionQuery__
+ *
+ * To run a query within a React component, call `useGetPetitionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPetitionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPetitionQuery({
+ *   variables: {
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useGetPetitionQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetPetitionQuery,
+    GetPetitionQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetPetitionQuery, GetPetitionQueryVariables>(
+    GetPetitionDocument,
+    options,
+  );
+}
+export function useGetPetitionLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPetitionQuery,
+    GetPetitionQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetPetitionQuery, GetPetitionQueryVariables>(
+    GetPetitionDocument,
+    options,
+  );
+}
+export function useGetPetitionSuspenseQuery(
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetPetitionQuery,
+        GetPetitionQueryVariables
+      >,
+) {
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
+  return Apollo.useSuspenseQuery<GetPetitionQuery, GetPetitionQueryVariables>(
+    GetPetitionDocument,
+    options,
+  );
+}
+export type GetPetitionQueryHookResult = ReturnType<typeof useGetPetitionQuery>;
+export type GetPetitionLazyQueryHookResult = ReturnType<
+  typeof useGetPetitionLazyQuery
+>;
+export type GetPetitionSuspenseQueryHookResult = ReturnType<
+  typeof useGetPetitionSuspenseQuery
+>;
+export type GetPetitionQueryResult = Apollo.QueryResult<
+  GetPetitionQuery,
+  GetPetitionQueryVariables
+>;
+export const GetPetitionSlugDocument = gql`
+  query GetPetitionSlug($locale: I18NLocaleCode) {
+    petition(locale: $locale) {
+      data {
+        attributes {
+          slug
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetPetitionSlugQuery__
+ *
+ * To run a query within a React component, call `useGetPetitionSlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPetitionSlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPetitionSlugQuery({
+ *   variables: {
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useGetPetitionSlugQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetPetitionSlugQuery,
+    GetPetitionSlugQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetPetitionSlugQuery, GetPetitionSlugQueryVariables>(
+    GetPetitionSlugDocument,
+    options,
+  );
+}
+export function useGetPetitionSlugLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPetitionSlugQuery,
+    GetPetitionSlugQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetPetitionSlugQuery,
+    GetPetitionSlugQueryVariables
+  >(GetPetitionSlugDocument, options);
+}
+export function useGetPetitionSlugSuspenseQuery(
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetPetitionSlugQuery,
+        GetPetitionSlugQueryVariables
+      >,
+) {
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
+  return Apollo.useSuspenseQuery<
+    GetPetitionSlugQuery,
+    GetPetitionSlugQueryVariables
+  >(GetPetitionSlugDocument, options);
+}
+export type GetPetitionSlugQueryHookResult = ReturnType<
+  typeof useGetPetitionSlugQuery
+>;
+export type GetPetitionSlugLazyQueryHookResult = ReturnType<
+  typeof useGetPetitionSlugLazyQuery
+>;
+export type GetPetitionSlugSuspenseQueryHookResult = ReturnType<
+  typeof useGetPetitionSlugSuspenseQuery
+>;
+export type GetPetitionSlugQueryResult = Apollo.QueryResult<
+  GetPetitionSlugQuery,
+  GetPetitionSlugQueryVariables
 >;
 export const GetPhimDocument = gql`
   query GetPhim($locale: I18NLocaleCode) {
@@ -7546,12 +8050,14 @@ export function useGetPhimLazyQuery(
   );
 }
 export function useGetPhimSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetPhimQuery,
-    GetPhimQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<GetPhimQuery, GetPhimQueryVariables>,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<GetPhimQuery, GetPhimQueryVariables>(
     GetPhimDocument,
     options,
@@ -7621,12 +8127,17 @@ export function useGetPostDetailBySlugLazyQuery(
   >(GetPostDetailBySlugDocument, options);
 }
 export function useGetPostDetailBySlugSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetPostDetailBySlugQuery,
-    GetPostDetailBySlugQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetPostDetailBySlugQuery,
+        GetPostDetailBySlugQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetPostDetailBySlugQuery,
     GetPostDetailBySlugQueryVariables
@@ -7700,12 +8211,17 @@ export function useGetRecipeDetailBySlugLazyQuery(
   >(GetRecipeDetailBySlugDocument, options);
 }
 export function useGetRecipeDetailBySlugSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetRecipeDetailBySlugQuery,
-    GetRecipeDetailBySlugQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetRecipeDetailBySlugQuery,
+        GetRecipeDetailBySlugQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetRecipeDetailBySlugQuery,
     GetRecipeDetailBySlugQueryVariables
@@ -7779,12 +8295,17 @@ export function useGetReviewDetailBySlugLazyQuery(
   >(GetReviewDetailBySlugDocument, options);
 }
 export function useGetReviewDetailBySlugSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetReviewDetailBySlugQuery,
-    GetReviewDetailBySlugQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetReviewDetailBySlugQuery,
+        GetReviewDetailBySlugQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetReviewDetailBySlugQuery,
     GetReviewDetailBySlugQueryVariables
@@ -7863,12 +8384,17 @@ export function useGetDieuKhoanDieuKienLazyQuery(
   >(GetDieuKhoanDieuKienDocument, options);
 }
 export function useGetDieuKhoanDieuKienSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetDieuKhoanDieuKienQuery,
-    GetDieuKhoanDieuKienQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetDieuKhoanDieuKienQuery,
+        GetDieuKhoanDieuKienQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetDieuKhoanDieuKienQuery,
     GetDieuKhoanDieuKienQueryVariables
@@ -7947,12 +8473,17 @@ export function useGetChinhSachBaoMatLazyQuery(
   >(GetChinhSachBaoMatDocument, options);
 }
 export function useGetChinhSachBaoMatSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetChinhSachBaoMatQuery,
-    GetChinhSachBaoMatQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetChinhSachBaoMatQuery,
+        GetChinhSachBaoMatQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetChinhSachBaoMatQuery,
     GetChinhSachBaoMatQueryVariables
@@ -8031,12 +8562,17 @@ export function useGetChinhSachLienKetLazyQuery(
   >(GetChinhSachLienKetDocument, options);
 }
 export function useGetChinhSachLienKetSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetChinhSachLienKetQuery,
-    GetChinhSachLienKetQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetChinhSachLienKetQuery,
+        GetChinhSachLienKetQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetChinhSachLienKetQuery,
     GetChinhSachLienKetQueryVariables
@@ -8111,12 +8647,17 @@ export function useGetCamNangBoTuiLazyQuery(
   >(GetCamNangBoTuiDocument, options);
 }
 export function useGetCamNangBoTuiSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetCamNangBoTuiQuery,
-    GetCamNangBoTuiQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetCamNangBoTuiQuery,
+        GetCamNangBoTuiQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetCamNangBoTuiQuery,
     GetCamNangBoTuiQueryVariables
@@ -8201,12 +8742,17 @@ export function useGetPocketBookLazyQuery(
   );
 }
 export function useGetPocketBookSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetPocketBookQuery,
-    GetPocketBookQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetPocketBookQuery,
+        GetPocketBookQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetPocketBookQuery,
     GetPocketBookQueryVariables
@@ -8281,12 +8827,14 @@ export function useGetLienHeLazyQuery(
   );
 }
 export function useGetLienHeSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetLienHeQuery,
-    GetLienHeQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<GetLienHeQuery, GetLienHeQueryVariables>,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<GetLienHeQuery, GetLienHeQueryVariables>(
     GetLienHeDocument,
     options,
@@ -8578,12 +9126,17 @@ export function useGetSupportViveLazyQuery(
   );
 }
 export function useGetSupportViveSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetSupportViveQuery,
-    GetSupportViveQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetSupportViveQuery,
+        GetSupportViveQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetSupportViveQuery,
     GetSupportViveQueryVariables
@@ -8745,12 +9298,17 @@ export function useGetThuThachThuanChayLazyQuery(
   >(GetThuThachThuanChayDocument, options);
 }
 export function useGetThuThachThuanChaySuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetThuThachThuanChayQuery,
-    GetThuThachThuanChayQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetThuThachThuanChayQuery,
+        GetThuThachThuanChayQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetThuThachThuanChayQuery,
     GetThuThachThuanChayQueryVariables
@@ -8823,12 +9381,17 @@ export function useGetVeganChallengeHomeLazyQuery(
   >(GetVeganChallengeHomeDocument, options);
 }
 export function useGetVeganChallengeHomeSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetVeganChallengeHomeQuery,
-    GetVeganChallengeHomeQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetVeganChallengeHomeQuery,
+        GetVeganChallengeHomeQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetVeganChallengeHomeQuery,
     GetVeganChallengeHomeQueryVariables
@@ -8856,12 +9419,17 @@ export const GetVLabelDocument = gql`
           contentImage1 {
             ...PhotoUrl
           }
+          titlePage
+          descriptionPage
           content
           txtButton
           hyperlink
           titleListLogos
           listLogos {
             ...LogoDetail
+          }
+          thumbnail {
+            ...PhotoUrl
           }
           seo {
             ...Seo
@@ -8916,12 +9484,14 @@ export function useGetVLabelLazyQuery(
   );
 }
 export function useGetVLabelSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetVLabelQuery,
-    GetVLabelQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<GetVLabelQuery, GetVLabelQueryVariables>,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<GetVLabelQuery, GetVLabelQueryVariables>(
     GetVLabelDocument,
     options,
@@ -9016,12 +9586,17 @@ export function useGetVeChungToiLazyQuery(
   );
 }
 export function useGetVeChungToiSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetVeChungToiQuery,
-    GetVeChungToiQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetVeChungToiQuery,
+        GetVeChungToiQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<
     GetVeChungToiQuery,
     GetVeChungToiQueryVariables
@@ -9127,12 +9702,17 @@ export function useGetVolunteerLazyQuery(
   );
 }
 export function useGetVolunteerSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetVolunteerQuery,
-    GetVolunteerQueryVariables
-  >,
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetVolunteerQuery,
+        GetVolunteerQueryVariables
+      >,
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
   return Apollo.useSuspenseQuery<GetVolunteerQuery, GetVolunteerQueryVariables>(
     GetVolunteerDocument,
     options,

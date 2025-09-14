@@ -9,14 +9,21 @@ import { useRouter } from 'next/router';
 import { useLayoutContext } from '@/context/LayoutContext';
 import Search from '../search/Search';
 import useTranslations from '@/hooks/useTranslations';
+import {
+  GetPetitionDocument,
+  GetPetitionQuery,
+  GetPetitionQueryVariables,
+} from '@/lib/gql/graphql';
+import client from '@/lib/apolloClient';
 
 const MiniMenu = () => {
   const t = useTranslations();
-  const { locale, events } = useRouter();
+  const { locale, events, push, reload } = useRouter();
   const { showMobileHeaderMenu, setShowMobileHeaderMenu } = useLayoutContext();
 
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [dropdownClicked, setDropdownClicked] = useState<string | null>(null);
+  const [petitionSlug, setPetitionSlug] = useState<string>();
 
   const onDropdownToggle = (keyword: string) => {
     if (openDropdown === keyword) {
@@ -35,6 +42,36 @@ const MiniMenu = () => {
     return () => {
       events.off('routeChangeComplete', hideMenu);
     };
+  }, []);
+
+  function handleGoToPetitions() {
+    if (petitionSlug) {
+      const path = `/petition/${petitionSlug}`;
+      push(path, undefined, {
+        locale: locale,
+      }).then(() => reload());
+    }
+  }
+
+  async function fetchPetitionSlug() {
+    let { data, errors } = await client.query<
+      GetPetitionQuery,
+      GetPetitionQueryVariables
+    >({
+      query: GetPetitionDocument,
+      variables: {
+        locale: locale,
+      },
+    });
+    if (errors) {
+      console.log('fetchPetitionSlug --errors: ', errors);
+      return;
+    }
+    setPetitionSlug(data.petition?.data?.attributes?.slug);
+  }
+
+  useEffect(() => {
+    fetchPetitionSlug();
   }, []);
 
   if (!showMobileHeaderMenu) return null;
@@ -123,18 +160,23 @@ const MiniMenu = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href={direct('join-us', locale)}>
-                          {t.header.doiNguSongThuanChay}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href={direct('contact-us', locale)}>
-                          {t.header.lienHe}
+                        <Link href="https://www.vegfestvietnam.vn">
+                          {t.header.veChungToi}
                         </Link>
                       </li>
                       <li>
                         <Link href={direct('eat-for-the-future', locale)}>
                           {t.header.anChoTuongLai}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href={direct('join-us', locale)}>
+                          {t.header.doiNguVive}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href={direct('contact-us', locale)}>
+                          {t.header.lienHe}
                         </Link>
                       </li>
                     </ul>
@@ -157,7 +199,8 @@ const MiniMenu = () => {
                   </div>
                   {openDropdown === 'GocBep' && (
                     <ul className="dropdown-list">
-                      <li>
+                      {/* (Dung_2024-Aug-27) Temporary deactivate Goc Bep and Review quan an page */}
+                      {/* <li>
                         <Link href={direct('vegan-food', locale)}>
                           {t.header.gocBep}
                         </Link>
@@ -166,7 +209,7 @@ const MiniMenu = () => {
                         <Link href={direct('review-restaurant')}>
                           {t.header.reviewQuanAn}
                         </Link>
-                      </li>
+                      </li> */}
                       <li>
                         <Link href={direct('recipe-vegan')}>
                           {t.header.congThucNauAn}
@@ -197,6 +240,13 @@ const MiniMenu = () => {
                   </div>
                   {openDropdown === 'TinTuc' && (
                     <ul className="dropdown-list">
+                      {/* {petitionSlug && (
+                        <li>
+                          <div onClick={handleGoToPetitions}>
+                            {t.header.petitions}
+                          </div>
+                        </li>
+                      )} */}
                       <li>
                         <Link href={direct('news', locale)}>
                           {t.header.tatCaTinTuc}

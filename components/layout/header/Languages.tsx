@@ -34,6 +34,14 @@ const Languages = () => {
           locale: lang,
         });
       }
+    } else if (new RegExp(/^\/(en\/)?(petition|don-thinh-cau)/).test(path)) {
+      const restOfPath = pathname.split('/')[pathname.split('/').length - 1];
+      const path = `/petition/${restOfPath}`;
+      router
+        .push(path, undefined, {
+          locale: lang,
+        })
+        .then(() => router.reload());
     }
   }
 
@@ -101,6 +109,8 @@ const directs = {
   '/gift-giving': '/dong-gop-khac',
   '/nguoi-tham-gia': '/volunteer',
   '/volunteer': '/nguoi-tham-gia',
+  '/don-thinh-cau': '/petitions',
+  '/petitions': '/don-thinh-cau',
 };
 
 export default Languages;
