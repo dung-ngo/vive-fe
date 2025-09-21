@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import { CSSProperties, ReactNode, useMemo, useState } from 'react';
+import { CSSProperties, ReactNode, useEffect, useMemo, useState } from 'react';
 import { TInitialLayout } from '@/typescript/types/props';
 import { HeaderTopDesktop, HeaderTopMobile } from './header/HeaderTop';
 import WaveBackground from '../WaveBackground';
 import HeaderContentSection from './header/HeaderContentSection';
 import HeaderMenu from './header/HeaderMenu';
-
+import { usePathname } from 'next/navigation';
 type PHeader = {
   backgroundItem: TInitialLayout['background'] | undefined;
   content: TInitialLayout['headerContent'] | undefined;
@@ -13,6 +13,7 @@ type PHeader = {
 };
 
 const Header = ({ backgroundItem, MainSection, content }: PHeader) => {
+  const pathName = usePathname();
   const imageBgStyle: CSSProperties = useMemo(
     () =>
       backgroundItem?.type === 'image'
@@ -42,7 +43,7 @@ const Header = ({ backgroundItem, MainSection, content }: PHeader) => {
         <div className="container">
           <HeaderTopMobile />
           <HeaderTopDesktop />
-          <HeaderMenu />
+          {pathName.startsWith('/petition/') ? null : <HeaderMenu />}
           {MainSection ?? (
             <HeaderContentSection
               title={content?.title ?? ''}
