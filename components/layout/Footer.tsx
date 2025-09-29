@@ -133,12 +133,7 @@ const Footer = () => {
             <div className="footer-info">
               <div className="footer-cetificates">
                 <Link href="http://online.gov.vn/Home/WebDetails/82853">
-                  <Image
-                    width={220}
-                    height={78.2}
-                    alt="certificate"
-                    src={Certificate}
-                  />
+                  <Image width={220} alt="certificate" src={Certificate} />
                 </Link>
               </div>
               <div>

@@ -6,11 +6,8 @@ import {
   GetPetitionQueryVariables,
 } from '@/lib/gql/graphql';
 import { direct } from '@/utils/link.util';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useState } from 'react';
-
-type Props = {};
 
 const HeaderMenu = () => {
   const { locale } = useRouter();

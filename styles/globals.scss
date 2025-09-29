@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
 body {
   margin: 0;
   padding: 0;
@@ -71,14 +75,17 @@ body {
     line-height: 28px;
     color: var(--dark);
     font-family: $font-secondary-regular;
+
     p,
     ul {
       margin-bottom: 18px;
     }
+
     ul {
       list-style-type: disc;
       padding-left: 40px;
     }
+
     img {
       max-width: 100%;
     }
@@ -87,9 +94,6 @@ body {
   p {
     padding: 0;
     margin: 0;
-  }
-  // tablet view
-  @media only screen and (min-width: 768px) {
   }
 
   // pc view
@@ -112,6 +116,7 @@ body {
   color: white;
   background: var(--secondary);
 }
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -125,10 +130,12 @@ body {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+
 .markdown p,
 .markdown ul {
   margin-bottom: 18px;
 }
+
 menu,
 ol,
 ul {
@@ -136,6 +143,7 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 .markdown ul {
   list-style-type: disc;
   padding-left: 2.5rem;
